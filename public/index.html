@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>Skill Library · Codex</title>
+  <link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a href="/" class="brand"><span class="brand-mark" aria-hidden="true">/</span> Raz / tools</a><span class="top-label">CODEX WORKSPACE</span><span class="private-label">Private inventory</span></header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow">YOUR REUSABLE TOOLKIT</p><h1>Skill Library<span class="heading-dot">.</span></h1><p class="intro">Know what to reach for. Know where it’s installed.</p></div><button id="export" class="secondary">Export inventory <span aria-hidden="true">↗</span></button></div>
+    <section class="overview" aria-label="Library overview"><div class="total"><span id="total">—</span><p>skills discovered</p></div><div id="machine-summary" class="machine-summary"><p>Loading machine inventories…</p></div><div class="scan-note"><span class="dot installed"></span><span>Scans every minute<br><small id="updated">Waiting for first scan</small></span></div></section>
+    <div id="error" role="alert" hidden></div>
+    <div class="toolbar"><nav id="tabs" aria-label="Skill origin"><button class="tab active" data-tab="all" aria-pressed="true">All skills <span id="count-all"></span></button><button class="tab" data-tab="builtin" aria-pressed="false">Built-in <span id="count-builtin"></span></button><button class="tab" data-tab="mine" aria-pressed="false">My skills <span id="count-mine"></span></button></nav><div class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a skill or workflow…" aria-label="Search skills"><kbd>/</kbd></label><label><span class="sr-only">Filter by source</span><select id="source"><option value="all">All sources</option><option value="personal">Personal</option><option value="plugin">Plugins</option><option value="project">Project</option><option value="builtin">Built-in</option></select></label></div></div>
+    <div class="table-container" tabindex="0" aria-label="Skills table, scroll horizontally on small screens"><table><thead><tr><th class="number">#</th><th>Skill / when to use it</th><th>Invocation starter</th><th>Source</th><th id="machine-0">Raz laptop</th><th id="machine-1">Gabs laptop</th></tr></thead><tbody id="skills"><tr><td colspan="6" class="empty">Reading your skill library…</td></tr></tbody></table></div>
+    <footer class="table-footer"><span id="shown" aria-live="polite">Loading…</span><div class="legend"><span><i class="dot installed"></i> Installed</span><span><i class="dot missing"></i> Missing</span><span><i class="dot attention"></i> Check</span><span><i class="dot unknown"></i> Unknown</span></div></footer>
+    <details class="setup"><summary>How this library stays up to date <span aria-hidden="true">+</span></summary><div><p>Each connected computer scans its skill folders every minute. This table reports observed installation—not whether every connector is signed in or dependency is ready. Cached plugins need verification. Content fingerprints include scripts and assets.</p><p>My skills includes your personal installs and plugin skills. Built-in includes Codex system skills and primary-runtime packages. Repository skills appear only when their roots are explicitly configured. GitHub’s approved manifest is separate from these live inventories; nothing is automatically copied or overwritten.</p><p id="manifest-status"></p><div id="warnings"></div></div></details>
+    <p class="bottom-note">Read-only by design. Your existing skills stay exactly where they are.</p>
+  </main>
+  <dialog id="detail"><div class="dialog-top"><p class="eyebrow">SKILL DETAILS</p><button id="close-detail" aria-label="Close details">×</button></div><h2 id="detail-name"></h2><p id="detail-description"></p><div id="detail-content"></div></dialog>
+</body></html>

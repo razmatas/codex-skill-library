@@ -1,0 +1,15 @@
+{
+  "machineId": "raz-laptop",
+  "machineName": "Raz laptop",
+  "port": 4317,
+  "scanIntervalMs": 60000,
+  "staleAfterMs": 300000,
+  "tailscaleHost": "",
+  "tailscaleDns": "",
+  "machines": [
+    { "id": "raz-laptop", "name": "Raz laptop" },
+    { "id": "gabs-laptop", "name": "Gabs laptop" }
+  ],
+  "extraRoots": [],
+  "reportUrl": ""
+}

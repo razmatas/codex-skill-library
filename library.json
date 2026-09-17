@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "skills": [],
+  "plugins": [],
+  "notes": "Approved desired setup, not an inventory. Add source, revision, expectedHash, and examplePrompt after review. Custom skill packages belong in skills/. Built-in and plugin caches are not backed up."
+}
