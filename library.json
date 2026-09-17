@@ -1,6 +1,228 @@
 {
   "schemaVersion": 1,
-  "skills": [],
+  "skills": [
+    {
+      "id": "user:codex:figma",
+      "name": "figma",
+      "origin": "user:codex",
+      "folder": "figma",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma",
+      "expectedHash": "37bf1a374a68d4aeba9fe6d1734da5b80809d2a45bbb60759f4967fdef7ea95d",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false,
+      "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+      "kind": "personal",
+      "sourceLabel": "Reviewed installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/figma"
+      },
+      "examplePrompt": "$figma — describe your task here"
+    },
+    {
+      "id": "user:codex:figma-implement-design",
+      "name": "figma-implement-design",
+      "origin": "user:codex",
+      "folder": "figma-implement-design",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma-implement-design",
+      "expectedHash": "2ec988619cc6518ad9f5d453a69c12ae66fbe3f74eac586be126c2e9d86d3e20",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false,
+      "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.",
+      "kind": "personal",
+      "sourceLabel": "Reviewed installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/figma-implement-design"
+      },
+      "examplePrompt": "$figma-implement-design — describe your task here"
+    },
+    {
+      "id": "user:codex:frontend-slides",
+      "name": "frontend-slides",
+      "origin": "user:codex",
+      "folder": "frontend-slides",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/frontend-slides",
+      "expectedHash": "1dba1299ad316cf2a13ae9479ea4435798243eef588447c203eca2a58bbe560f",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false,
+      "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.",
+      "kind": "personal",
+      "sourceLabel": "Reviewed installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/frontend-slides"
+      },
+      "examplePrompt": "$frontend-slides — describe your task here"
+    },
+    {
+      "id": "user:codex:hatch-pet",
+      "name": "hatch-pet",
+      "origin": "user:codex",
+      "folder": "hatch-pet",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/hatch-pet",
+      "expectedHash": "bf5b255404b31868719f018d2238cf595771362fe23827c26ec3aaf91ce064a1",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false,
+      "description": "Create, repair, validate, visually QA, and package Codex-compatible v2 animated pets from character art, generated images, company or prospect brand cues, or visual references. Use for any new Codex pet, custom mascot, non-pixel pet style, brand-inspired pet, existing-pet repair, or 8x11 spritesheet workflow requiring all 9 standard animation rows, 16 look directions, deterministic assembly, QA artifacts, and spriteVersionNumber 2 packaging.",
+      "kind": "personal",
+      "sourceLabel": "Reviewed installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/hatch-pet"
+      },
+      "examplePrompt": "$hatch-pet — describe your task here"
+    }
+  ],
   "plugins": [],
-  "notes": "Approved desired setup, not an inventory. Add source, revision, expectedHash, and examplePrompt after review. Custom skill packages belong in skills/. Built-in and plugin caches are not backed up."
+  "notes": "User approved review/backup of all personal packages on 2026-09-17. First batch contains seven licensed installed snapshots, not an automated install plan. Remaining packages need provenance/license review. Backups preserve renamed entry files without enabling them. Credentials and built-in/plugin caches excluded.",
+  "backups": [
+    {
+      "id": "user:codex:figma",
+      "name": "figma",
+      "origin": "user:codex",
+      "folder": "figma",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma",
+      "expectedHash": "37bf1a374a68d4aeba9fe6d1734da5b80809d2a45bbb60759f4967fdef7ea95d",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:codex:figma-implement-design",
+      "name": "figma-implement-design",
+      "origin": "user:codex",
+      "folder": "figma-implement-design",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma-implement-design",
+      "expectedHash": "2ec988619cc6518ad9f5d453a69c12ae66fbe3f74eac586be126c2e9d86d3e20",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:codex:frontend-slides",
+      "name": "frontend-slides",
+      "origin": "user:codex",
+      "folder": "frontend-slides",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/frontend-slides",
+      "expectedHash": "1dba1299ad316cf2a13ae9479ea4435798243eef588447c203eca2a58bbe560f",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:codex:hatch-pet",
+      "name": "hatch-pet",
+      "origin": "user:codex",
+      "folder": "hatch-pet",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/hatch-pet",
+      "expectedHash": "bf5b255404b31868719f018d2238cf595771362fe23827c26ec3aaf91ce064a1",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:agents:brand-guidelines",
+      "name": "brand-guidelines",
+      "origin": "user:agents",
+      "folder": "brand-guidelines",
+      "installRoot": "agents",
+      "entryFile": "SKILL_BrandGuidelines.md",
+      "backupPath": "skills/agents/brand-guidelines",
+      "expectedHash": "7a18eb9e4a2d5041ab1cb608fcfc854c38ae40637d6a92ee773d78cbc919ee69",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": false,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:agents:frontend-design",
+      "name": "frontend-design",
+      "origin": "user:agents",
+      "folder": "frontend-design",
+      "installRoot": "agents",
+      "entryFile": "SKILL_FrontendDesign.md",
+      "backupPath": "skills/agents/frontend-design",
+      "expectedHash": "919e404696462185b62312b17d2063a8a91645d5fe81b94987fe450169d0a9c8",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": false,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    },
+    {
+      "id": "user:agents:skill-creator",
+      "name": "skill-creator",
+      "origin": "user:agents",
+      "folder": "skill-creator",
+      "installRoot": "agents",
+      "entryFile": "SKILL_SkillCreator.md",
+      "backupPath": "skills/agents/skill-creator",
+      "expectedHash": "98e61204fc8cab1f8090ae9519016b6547e122b1374f610dad68d33c96d25c77",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": false,
+      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "managed": false
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 # Private GitHub source of truth
 
-Private repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library), created with Raz's approval on 2026-09-17. It backs up the dashboard/scanner source and setup docs. It does not yet back up installed skill packages; library.json and skills/ remain review-ready scaffolds.
+Private repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library), created with Raz's approval on 2026-09-17. Raz subsequently approved reviewing and backing up all personal packages. The first batch contains seven licensed installed snapshots with manifest fingerprints and original root/entry filenames. Remaining packages are still being reviewed. No automatic installation is enabled.
 
 Commit dashboard/scanner source, tests, documentation, config.example.json, library.json, and reviewed custom packages under skills/. Exclude data/, config.local.json, tokens, .env files, plugin caches, dependency folders, account sessions, and machine-specific configuration.
 
@@ -16,14 +16,18 @@ An approved personal entry can look like this (replace examples with verified so
   "description": "A reviewed one-line use case",
   "kind": "personal",
   "sourceLabel": "Custom · skills/my-skill",
-  "source": "skills/my-skill",
-  "revision": "reviewed git commit",
+  "managed": true,
+  "folder": "my-skill",
+  "installRoot": "agents",
+  "source": { "type": "custom", "path": "skills/my-skill" },
   "expectedHash": "verified 64-character SHA-256",
   "examplePrompt": "$my-skill perform this concrete workflow"
 }
 ```
 
 Third-party entries should include upstream repository, pinned revision, license and installation root. Plugin entries go in library.json's plugins list with plugin ID, observed version and notes; the current dashboard compares observed skill packages, not plugin manifest declarations. Authentication always remains machine-local. Built-in packages come from Codex/runtime updates and should not be copied from caches.
+
+Managed third-party sources use `source: { type: "github", repo: "owner/repository", revision: "full-40-character-commit", path: "skills/package" }`. These declarations are not download authorization: the current planner reports `source-required`. The fixture-tested apply module handles reviewed local custom packages only and is not yet exposed as an install CLI. See [REVIEW.md](REVIEW.md) for the pending scope checkpoint.
 
 ## Safe workflow
 
