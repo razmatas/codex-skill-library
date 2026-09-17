@@ -2,7 +2,7 @@
 
 Execution environment: codex-work. Checkpoint: 2026-09-17.
 
-Raz approved reviewing and backing up all personal skill packages on 2026-09-17, including third-party ones, while excluding credentials and built-in/plugin caches. The first reviewed batch is seven exact snapshots retaining local license files: figma, figma-implement-design, frontend-slides, hatch-pet, brand-guidelines, frontend-design and skill-creator. Three have nonstandard entry filenames and remain backup-only, not enabled. Package copies were fingerprint-verified against installed originals. All other packages remain pending provenance/license review. Local audit reports are ignored under data/ and are not served by the dashboard.
+Raz approved private backup of all personal packages and then explicitly requested finishing every package. All 44 audited copies are now archived and fingerprint-verified against installed originals; no originals changed. Included license files remain intact, and unknown license/authorship details are explicitly recorded as unknown. Four nonstandard entries remain backup-only. This fulfills archival coverage, not public redistribution rights, dependency setup or two-machine equivalence. Local audit reports remain ignored and are not served.
 
 ## Remaining review scope
 

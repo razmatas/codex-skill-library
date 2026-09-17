@@ -12,7 +12,7 @@ export function validateManagedEntries(manifest) {
     if (!segment.test(entry.folder || '') || !['agents', 'codex'].includes(entry.installRoot) || !hashPattern.test(entry.expectedHash || '')) throw new Error('Invalid managed target or fingerprint');
     if (!entry.name || typeof entry.name !== 'string') throw new Error('Managed skill needs a name');
     if (!entry.source || !['custom', 'github'].includes(entry.source.type)) throw new Error('Unsupported managed source');
-    if (entry.source.type === 'custom' && entry.source.path !== `skills/${entry.folder}`) throw new Error('Custom package must be under skills/<folder>');
+    if (entry.source.type === 'custom' && ![`skills/${entry.folder}`,`skills/${entry.installRoot}/${entry.folder}`].includes(entry.source.path)) throw new Error('Custom package must be under its reviewed skills directory');
     if (entry.source.type === 'github' && (!/^[\w.-]+\/[\w.-]+$/.test(entry.source.repo || '') || !/^[a-f0-9]{40}$/.test(entry.source.revision || '') || !entry.source.path || entry.source.path.split('/').some(p => !segment.test(p)))) throw new Error('GitHub source needs a repository, full commit and safe package path');
     const target = `${entry.installRoot}/${entry.folder}`;
     if (targets.has(target)) throw new Error('Duplicate managed target');

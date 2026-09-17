@@ -45,6 +45,8 @@ The reporter service deploys to `~/Library/Application Support/Codex Skill Libra
 
 ## Acceptance checks
 
+After reporter pairing, follow RESTORE.md to review and explicitly apply the private snapshot. Cloning alone never installs skills. Do not reset Git changes or overwrite a mismatching unmanaged skill.
+
 1. Central Gabs column is live and last received is recent.
 2. A temporary test skill created in a dedicated folder under a configured skill root appears after the next scan and disappears after removing only that test folder. Never delete real skills for testing.
 3. Existing skills have not moved or changed; plugins still use their normal installation mechanism.

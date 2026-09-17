@@ -1,6 +1,6 @@
 # Private GitHub source of truth
 
-Private repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library), created with Raz's approval on 2026-09-17. Raz subsequently approved reviewing and backing up all personal packages. The first batch contains seven licensed installed snapshots with manifest fingerprints and original root/entry filenames. Remaining packages are still being reviewed. No automatic installation is enabled.
+Private repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library), created with Raz's approval on 2026-09-17. All 44 audited personal copies are now archived with exact manifest hashes and original roots/entry filenames. Included licenses remain intact; unknown licenses/authorship are recorded rather than inferred. These are private snapshots, not a public redistribution release. No automatic installation is enabled. Explicit restore instructions: RESTORE.md.
 
 Commit dashboard/scanner source, tests, documentation, config.example.json, library.json, and reviewed custom packages under skills/. Exclude data/, config.local.json, tokens, .env files, plugin caches, dependency folders, account sessions, and machine-specific configuration.
 
@@ -27,7 +27,7 @@ An approved personal entry can look like this (replace examples with verified so
 
 Third-party entries should include upstream repository, pinned revision, license and installation root. Plugin entries go in library.json's plugins list with plugin ID, observed version and notes; the current dashboard compares observed skill packages, not plugin manifest declarations. Authentication always remains machine-local. Built-in packages come from Codex/runtime updates and should not be copied from caches.
 
-Managed third-party sources use `source: { type: "github", repo: "owner/repository", revision: "full-40-character-commit", path: "skills/package" }`. These declarations are not download authorization: the current planner reports `source-required`. The fixture-tested apply module handles reviewed local custom packages only and is not yet exposed as an install CLI. See [REVIEW.md](REVIEW.md) for the pending scope checkpoint.
+Managed third-party sources use `source: { type: "github", repo: "owner/repository", revision: "full-40-character-commit", path: "skills/package" }`. These declarations are not download authorization: the current planner reports `source-required`. The restore CLI operates on fingerprint-approved local snapshots, not floating upstream versions. Upstream matching remains separate from exact installed-version backup.
 
 ## Safe workflow
 

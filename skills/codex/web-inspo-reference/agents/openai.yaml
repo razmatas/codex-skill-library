@@ -1,0 +1,12 @@
+interface:
+  display_name: "Inspo References"
+  short_description: "Find visual references with Inspo MCP"
+  default_prompt: "Use $inspo-references to find relevant visual references and turn them into an implementation brief."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "inspo"
+      description: "Inspo's hosted visual-reference archive"
+      transport: "streamable_http"
+      url: "https://inspomcp.dev/api/mcp"

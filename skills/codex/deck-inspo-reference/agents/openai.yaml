@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deck Gallery Inspiration"
+  short_description: "Find deck references and visual directions"
+  default_prompt: "Find Deck.gallery references for this presentation brief and recommend a visual direction."

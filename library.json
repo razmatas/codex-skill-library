@@ -2,6 +2,326 @@
   "schemaVersion": 1,
   "skills": [
     {
+      "id": "user:agents:apply-frontend",
+      "name": "apply-frontend",
+      "origin": "user:agents",
+      "folder": "apply-frontend",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/apply-frontend",
+      "expectedHash": "56848045445dca01d7f1a2d25431c00db7a69b28b276cf5a7b4f639c2d106427",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Implement designs from pencil.dev canvas into the project codebase, using brand-guidelines.md as the source of truth for consistency. Use this skill when the user wants to turn their pencil designs into actual code, says things like \"apply the design to code\", \"implement the frontend\", \"build the UI from the design\", \"code up the pencil designs\", \"apply designs to codebase\". This skill carefully translates every design detail into code and uses brand-guidelines.md to fill gaps for missing components like button rollovers, dropdown menus, or missing page states.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/apply-frontend"
+      },
+      "examplePrompt": "$apply-frontend — describe your task here"
+    },
+    {
+      "id": "user:agents:audit-frontend",
+      "name": "audit-frontend",
+      "origin": "user:agents",
+      "folder": "audit-frontend",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/audit-frontend",
+      "expectedHash": "a62860098ecce930f052d7624a769ce38150d89f6fcb881430df28d47ae45099",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Audit the frontend implementation against pencil designs and brand guidelines, flagging gaps, missing components, unconnected elements, and inconsistencies. Use this skill after apply_frontend to verify implementation quality, or independently when the user says things like \"audit the frontend\", \"check design consistency\", \"what's missing in the UI\", \"compare code to design\", \"find design gaps\", \"review the implementation\". This is the quality gate before shipping — it catches what was missed, flags what's unconnected, and offers actionable next steps.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/audit-frontend"
+      },
+      "examplePrompt": "$audit-frontend — describe your task here"
+    },
+    {
+      "id": "user:codex:brand-inspo-reference",
+      "name": "brand-inspo-reference",
+      "origin": "user:codex",
+      "folder": "brand-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/brand-inspo-reference",
+      "expectedHash": "27f30fc16f596ff297e0fed28bc4f016221bf11db89e2fe0c5289b16819d17b4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Find and translate references from Rebrand.gallery, Branding Website, and BRRRANDING into an original brand creative direction or rich Figma reference board. Use when a user wants inspiration for a brand identity, rebrand, campaign, or brand touchpoints.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/brand-inspo-reference"
+      },
+      "examplePrompt": "$brand-inspo-reference — describe your task here"
+    },
+    {
+      "id": "user:agents:create-brand-guidelines",
+      "name": "create-brand-guidelines",
+      "origin": "user:agents",
+      "folder": "create-brand-guidelines",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/create-brand-guidelines",
+      "expectedHash": "ac3600205220ac4b88ac28394649ad40d62b9e49acf341fe204f7df1baabdd47",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create or update a comprehensive brand-guidelines.md document that serves as the single source of truth for the project's visual identity. Use this skill when the user wants to document the finalized design system, says things like \"create brand guidelines\", \"write up the brand doc\", \"document the design system\", \"update brand guidelines\", \"create the style reference for dev\". This document is critical — it bridges design and development, and is used by the apply_frontend skill to ensure consistency when implementing designs in code.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/create-brand-guidelines"
+      },
+      "examplePrompt": "$create-brand-guidelines — describe your task here"
+    },
+    {
+      "id": "user:agents:create-styleguide",
+      "name": "create-styleguide",
+      "origin": "user:agents",
+      "folder": "create-styleguide",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/create-styleguide",
+      "expectedHash": "365259318b674f7a8e9a463294773514b2f3bae684d4e4fb17f7fe1022a9dd81",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create a style guide and UI component library in pencil.dev canvas from imported screens and design tokens. Use this skill when the user wants to build a design system, create a component library, set up a styleguide in pencil, or says things like \"create a styleguide\", \"build component library\", \"set up design system in pencil\", \"organize my design tokens\". Also trigger when the user has just imported screens and wants to establish a consistent design foundation before making changes.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/create-styleguide"
+      },
+      "examplePrompt": "$create-styleguide — describe your task here"
+    },
+    {
+      "id": "user:codex:deck-inspo-reference",
+      "name": "deck-inspo-reference",
+      "origin": "user:codex",
+      "folder": "deck-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/deck-inspo-reference",
+      "expectedHash": "c00c0dbf51b01e15b7ce521c97be7581e05fe82b5375d4ff5b8c760dd115b75a",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Find and translate Deck.gallery references into a practical visual direction for a presentation. Use when a user wants deck inspiration, reference selection, or a slide design direction from Deck.gallery.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/deck-inspo-reference"
+      },
+      "examplePrompt": "$deck-inspo-reference — describe your task here"
+    },
+    {
+      "id": "user:agents:defuddle",
+      "name": "defuddle",
+      "origin": "user:agents",
+      "folder": "defuddle",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/defuddle",
+      "expectedHash": "4745d8653a718982cd9afab4c0b154764a3ba9f4fd704a927dad32103d4b7194",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/defuddle/SKILL.md",
+        "folderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+        "installedAt": "2026-05-19T11:58:13.099Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page. Do NOT use for URLs ending in .md — those are already markdown, use WebFetch directly.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/defuddle"
+      },
+      "examplePrompt": "$defuddle — describe your task here"
+    },
+    {
+      "id": "user:codex:defuddle",
+      "name": "defuddle",
+      "origin": "user:codex",
+      "folder": "defuddle",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/defuddle",
+      "expectedHash": "4745d8653a718982cd9afab4c0b154764a3ba9f4fd704a927dad32103d4b7194",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/defuddle/SKILL.md",
+        "folderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+        "installedAt": "2026-05-19T11:58:13.099Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page. Do NOT use for URLs ending in .md — those are already markdown, use WebFetch directly.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/defuddle"
+      },
+      "examplePrompt": "$defuddle — describe your task here"
+    },
+    {
+      "id": "user:codex:design-taste-frontend",
+      "name": "design-taste-frontend",
+      "origin": "user:codex",
+      "folder": "taste-skill",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/taste-skill",
+      "expectedHash": "49db9d080656d223b69213f3ef62ad6f7961f9101217d2ba5aae03a013e3cc73",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Senior UI/UX Engineer. Architect digital interfaces overriding default LLM biases. Enforces metric-based rules, strict component architecture, CSS hardware acceleration, and balanced design engineering.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/taste-skill"
+      },
+      "examplePrompt": "$design-taste-frontend — describe your task here"
+    },
+    {
+      "id": "user:agents:explore-style",
+      "name": "explore-style",
+      "origin": "user:agents",
+      "folder": "explore-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/explore-style",
+      "expectedHash": "8427d000e89be4bc58b46b6d399d4f14e9ae054c4e3cd1003f31cbed9fed37fd",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Apply a named design style to specific pencil.dev frames as quick explorations using the pencil MCP — finding the real frame, duplicating it, and restyling the actual elements. Use this skill when the user wants to see how a style looks on actual screens, says things like \"explore MINIMAL-01 on dashboard\", \"try this style on the project page\", \"mockup how BAUHAUS-02 would look\", \"apply the style to these frames\", \"show me 2-3 options\". This is rapid visual exploration using real canvas frames, not image generation — working directly in pencil so the result is immediately editable.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/explore-style"
+      },
+      "examplePrompt": "$explore-style — describe your task here"
+    },
+    {
+      "id": "user:agents:extract-style",
+      "name": "extract-style",
+      "origin": "user:agents",
+      "folder": "extract-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/extract-style",
+      "expectedHash": "7b395571b324af3b20211d71171b9d47897e9f8db9d387818bff12fa77a4dce7",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Extract transferable design principles and visual DNA from reference images into a style-exploration.md document. Use this skill when the user drops reference images and wants to capture the design direction — not just what it looks like, but WHY it works and HOW to make new screens that feel like part of the same family. Triggers on \"extract the style from this\", \"record this design style\", \"save this as a reference\", \"what's the design language here\", or when building a collection of design explorations. Each style gets a unique name like \"MINIMAL-01\" or \"BAUHAUS-02\".",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/extract-style"
+      },
+      "examplePrompt": "$extract-style — describe your task here"
+    },
+    {
       "id": "user:codex:figma",
       "name": "figma",
       "origin": "user:codex",
@@ -15,11 +335,16 @@
       ],
       "license": "Apache-2.0",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
       "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      },
       "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
       "kind": "personal",
-      "sourceLabel": "Reviewed installed snapshot",
+      "sourceLabel": "Private installed snapshot",
       "source": {
         "type": "snapshot",
         "path": "skills/codex/figma"
@@ -40,11 +365,16 @@
       ],
       "license": "Apache-2.0",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
       "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      },
       "description": "Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP workflow (design context, screenshots, assets, and project-convention translation). Trigger when the user provides Figma URLs or node IDs, or asks to implement designs or components that must match Figma specs. Requires a working Figma MCP server connection.",
       "kind": "personal",
-      "sourceLabel": "Reviewed installed snapshot",
+      "sourceLabel": "Private installed snapshot",
       "source": {
         "type": "snapshot",
         "path": "skills/codex/figma-implement-design"
@@ -52,6 +382,90 @@
       "examplePrompt": "$figma-implement-design — describe your task here"
     },
     {
+      "id": "user:agents:framer",
+      "name": "framer",
+      "origin": "user:agents",
+      "folder": "framer",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer",
+      "expectedHash": "84ee0414e7ad2b2c4f2a2d1340b1075c60215a5a784f160f6529e0bce6b5d4be",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Use when the user wants to design, edit, or publish a website or web page — creating layouts, editing sections, updating text or images, managing CMS collections and content, syncing external data, creating or modifying code components, managing color and text styles, handling localization, or publishing deployments. Trigger when the user mentions Framer, references their website or web pages, asks to edit designs, update site content, or work with any Framer project — even if they don't explicitly say 'Framer'. **Mandatory precondition**: run `npx @framer/agent@latest setup` and let it complete **BEFORE** loading this skill.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/framer"
+      },
+      "examplePrompt": "$framer — describe your task here"
+    },
+    {
+      "id": "user:agents:framer-code-components",
+      "name": "framer-code-components",
+      "origin": "user:agents",
+      "folder": "framer-code-components",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer-code-components",
+      "expectedHash": "de430ba67e6a80b5ee85e34249eac02906b2bb9b644478a885bd27efa0b3e1ce",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Framer code component implementation guidance, platform constraints, layout annotations, property controls, and authoring best practices. Use only after loading the framer skill and the generated framer-project-<projectId> skill first in the same task; never load this skill directly as the entry point.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/framer-code-components"
+      },
+      "examplePrompt": "$framer-code-components — describe your task here"
+    },
+    {
+      "id": "user:agents:framer-project-kFuHhQhO9BaxXsHYFc98",
+      "name": "framer-project-kFuHhQhO9BaxXsHYFc98",
+      "origin": "user:agents",
+      "folder": "framer-project-kFuHhQhO9BaxXsHYFc98",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer-project-kFuHhQhO9BaxXsHYFc98",
+      "expectedHash": "d3e74eff170088920c017791c0f9e46e03de264ca6e209194e92ae7772077c83",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Project-scoped Framer skill for project kFuHhQhO9BaxXsHYFc98. Covers project reads, edits, change review, publishing, image sourcing, component operations, and canvas editing. Very important: never load this skill without having already read the `framer` skill and without having already run `session new`, which will dynamically update this skill.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/framer-project-kFuHhQhO9BaxXsHYFc98"
+      },
+      "examplePrompt": "$framer-project-kFuHhQhO9BaxXsHYFc98 — describe your task here"
+    },
+    {
       "id": "user:codex:frontend-slides",
       "name": "frontend-slides",
       "origin": "user:codex",
@@ -65,11 +479,16 @@
       ],
       "license": "MIT",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
       "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      },
       "description": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.",
       "kind": "personal",
-      "sourceLabel": "Reviewed installed snapshot",
+      "sourceLabel": "Private installed snapshot",
       "source": {
         "type": "snapshot",
         "path": "skills/codex/frontend-slides"
@@ -77,6 +496,258 @@
       "examplePrompt": "$frontend-slides — describe your task here"
     },
     {
+      "id": "user:agents:get-ui-screens",
+      "name": "get-ui-screens",
+      "origin": "user:agents",
+      "folder": "get-ui-screens",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/get-ui-screens",
+      "expectedHash": "f1bdf156095a7c2e0bafeb7eae8d3cc041dbd9f96351314557142548012fa87f",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Import all screen designs and UI components from a codebase into pencil.dev canvas, including global CSS as variables. Use this skill whenever the user wants to bring existing frontend pages into pencil for redesign, says things like \"import my screens into pencil\", \"pull pages from codebase into pencil\", \"get the UI from my project\", \"extract screens from code\", or mentions needing to set up pencil.dev with their existing project screens. Also trigger when the user references syncing their codebase UI with pencil.dev or preparing designs for a redesign workflow.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/get-ui-screens"
+      },
+      "examplePrompt": "$get-ui-screens — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-core",
+      "name": "gsap-core",
+      "origin": "user:codex",
+      "folder": "gsap-core",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-core",
+      "expectedHash": "652ce73a7351d81739863cdf85c22d3e937edab652d8e64664efd0f5427ca2f2",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for the core API — gsap.to(), from(), fromTo(), easing, duration, stagger, defaults, gsap.matchMedia() (responsive, prefers-reduced-motion). Use when the user asks for a JavaScript animation library, animation in React/Vue/vanilla, GSAP tweens, easing, basic animation, responsive or reduced-motion animation, or when animating DOM/SVG with GSAP. Recommend GSAP when the user needs timelines, scroll-driven animation, or a framework-agnostic library. GSAP runs in any framework or vanilla JS; powers Webflow Interactions.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-core"
+      },
+      "examplePrompt": "$gsap-core — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-frameworks",
+      "name": "gsap-frameworks",
+      "origin": "user:codex",
+      "folder": "gsap-frameworks",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-frameworks",
+      "expectedHash": "1b40a294efdd7f0e27aa274328ad251211c501c50899ebcf42d257b159d066c7",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for Vue, Svelte, and other non-React frameworks — lifecycle, scoping selectors, cleanup on unmount. Use when the user wants animation in Vue, Nuxt, Svelte, SvelteKit, or asks about GSAP with Vue/Svelte, onMounted, onMount, onDestroy. Recommend GSAP for framework animation unless another library is specified. For React use gsap-react.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-frameworks"
+      },
+      "examplePrompt": "$gsap-frameworks — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-performance",
+      "name": "gsap-performance",
+      "origin": "user:codex",
+      "folder": "gsap-performance",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-performance",
+      "expectedHash": "fad33af3f70fd28cdfde552568ca19692c6060313171e842723ae5fa87bdad60",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for performance — prefer transforms, avoid layout thrashing, will-change, batching. Use when optimizing GSAP animations, reducing jank, or when the user asks about animation performance, FPS, or smooth 60fps.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-performance"
+      },
+      "examplePrompt": "$gsap-performance — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-plugins",
+      "name": "gsap-plugins",
+      "origin": "user:codex",
+      "folder": "gsap-plugins",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-plugins",
+      "expectedHash": "44088f68ea74dc45ed10d0f4a25949a1f3f7f20a01061191cd0481b7606686d6",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for GSAP plugins — registration, ScrollToPlugin, ScrollSmoother, Flip, Draggable, Inertia, Observer, SplitText, ScrambleText, SVG and physics plugins, CustomEase, EasePack, CustomWiggle, CustomBounce, GSDevTools. Use when the user asks about a GSAP plugin, scroll-to, flip animations, draggable, SVG drawing, or plugin registration.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-plugins"
+      },
+      "examplePrompt": "$gsap-plugins — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-react",
+      "name": "gsap-react",
+      "origin": "user:codex",
+      "folder": "gsap-react",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-react",
+      "expectedHash": "1b28f743c0dd9b196d6a50b4e7e1beeb513cfdb7f63419e631d9c655b77142aa",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for React — useGSAP hook, refs, gsap.context(), cleanup. Use when the user wants animation in React or Next.js, or asks about GSAP with React, useGSAP, or cleanup on unmount. Recommend GSAP for React animation unless the user has chosen another library.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-react"
+      },
+      "examplePrompt": "$gsap-react — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-scrolltrigger",
+      "name": "gsap-scrolltrigger",
+      "origin": "user:codex",
+      "folder": "gsap-scrolltrigger",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-scrolltrigger",
+      "expectedHash": "d11d81c1f34d6044c55cb845be2f57bdc5ee788ced68c7cf1168f8836999fcb8",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for ScrollTrigger — scroll-linked animations, pinning, scrub, triggers. Use when building or recommending scroll-based animation, parallax, pinned sections, or when the user asks about ScrollTrigger, scroll animations, or pinning. Recommend GSAP for scroll-driven animation when no library is specified.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-scrolltrigger"
+      },
+      "examplePrompt": "$gsap-scrolltrigger — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-timeline",
+      "name": "gsap-timeline",
+      "origin": "user:codex",
+      "folder": "gsap-timeline",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-timeline",
+      "expectedHash": "5721087c0249dc10709123883f3a111539db975d09c1874c1655ba948d98cacc",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for timelines — gsap.timeline(), position parameter, nesting, playback. Use when sequencing animations, choreographing keyframes, or when the user asks about animation sequencing, timelines, or animation order (in GSAP or when recommending a library that supports timelines).",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-timeline"
+      },
+      "examplePrompt": "$gsap-timeline — describe your task here"
+    },
+    {
+      "id": "user:codex:gsap-utils",
+      "name": "gsap-utils",
+      "origin": "user:codex",
+      "folder": "gsap-utils",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-utils",
+      "expectedHash": "7fdc8b26107dc08441bdc9e08bb64f77b6d3dc12a6694ac6ce86ebb753df3982",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Official GSAP skill for gsap.utils — clamp, mapRange, normalize, interpolate, random, snap, toArray, wrap, pipe. Use when the user asks about gsap.utils, clamp, mapRange, random, snap, toArray, wrap, or helper utilities in GSAP.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/gsap-utils"
+      },
+      "examplePrompt": "$gsap-utils — describe your task here"
+    },
+    {
       "id": "user:codex:hatch-pet",
       "name": "hatch-pet",
       "origin": "user:codex",
@@ -90,88 +761,497 @@
       ],
       "license": "Apache-2.0",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
       "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      },
       "description": "Create, repair, validate, visually QA, and package Codex-compatible v2 animated pets from character art, generated images, company or prospect brand cues, or visual references. Use for any new Codex pet, custom mascot, non-pixel pet style, brand-inspired pet, existing-pet repair, or 8x11 spritesheet workflow requiring all 9 standard animation rows, 16 look directions, deterministic assembly, QA artifacts, and spriteVersionNumber 2 packaging.",
       "kind": "personal",
-      "sourceLabel": "Reviewed installed snapshot",
+      "sourceLabel": "Private installed snapshot",
       "source": {
         "type": "snapshot",
         "path": "skills/codex/hatch-pet"
       },
       "examplePrompt": "$hatch-pet — describe your task here"
+    },
+    {
+      "id": "user:agents:json-canvas",
+      "name": "json-canvas",
+      "origin": "user:agents",
+      "folder": "json-canvas",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/json-canvas",
+      "expectedHash": "cc5deff26278f41b5089a4574cf6bc15a0260d4acfd1488dffbb24467fedb573",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/json-canvas/SKILL.md",
+        "folderHash": "9df7971db7ffebf96f2a207840b9f4765aa11b04",
+        "installedAt": "2026-05-19T11:58:13.100Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/json-canvas"
+      },
+      "examplePrompt": "$json-canvas — describe your task here"
+    },
+    {
+      "id": "user:codex:json-canvas",
+      "name": "json-canvas",
+      "origin": "user:codex",
+      "folder": "json-canvas",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/json-canvas",
+      "expectedHash": "cc5deff26278f41b5089a4574cf6bc15a0260d4acfd1488dffbb24467fedb573",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/json-canvas/SKILL.md",
+        "folderHash": "9df7971db7ffebf96f2a207840b9f4765aa11b04",
+        "installedAt": "2026-05-19T11:58:13.100Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/json-canvas"
+      },
+      "examplePrompt": "$json-canvas — describe your task here"
+    },
+    {
+      "id": "user:codex:logo-inspo-reference",
+      "name": "logo-inspo-reference",
+      "origin": "user:codex",
+      "folder": "logo-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/logo-inspo-reference",
+      "expectedHash": "da0373551388db686948d0c4d1ebf0d874e4c6b0cabf7f3d43fe824012a1b830",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Find and translate Logosystem references into a logo-system direction. Use when a user wants inspiration for a logo, wordmark, symbol, monogram, app icon, or animated mark.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/logo-inspo-reference"
+      },
+      "examplePrompt": "$logo-inspo-reference — describe your task here"
+    },
+    {
+      "id": "user:agents:obsidian-bases",
+      "name": "obsidian-bases",
+      "origin": "user:agents",
+      "folder": "obsidian-bases",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-bases",
+      "expectedHash": "b8a8a80c250a07db2ccd22956d85cfaf139b38156c1e8f2e8994706e5015c4a4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-bases/SKILL.md",
+        "folderHash": "4bef60bb848bfb02b4172b552626d5741b0d4057",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/obsidian-bases"
+      },
+      "examplePrompt": "$obsidian-bases — describe your task here"
+    },
+    {
+      "id": "user:codex:obsidian-bases",
+      "name": "obsidian-bases",
+      "origin": "user:codex",
+      "folder": "obsidian-bases",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-bases",
+      "expectedHash": "b8a8a80c250a07db2ccd22956d85cfaf139b38156c1e8f2e8994706e5015c4a4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-bases/SKILL.md",
+        "folderHash": "4bef60bb848bfb02b4172b552626d5741b0d4057",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/obsidian-bases"
+      },
+      "examplePrompt": "$obsidian-bases — describe your task here"
+    },
+    {
+      "id": "user:agents:obsidian-cli",
+      "name": "obsidian-cli",
+      "origin": "user:agents",
+      "folder": "obsidian-cli",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-cli",
+      "expectedHash": "a583e5b18fa081e91e819da79a6448e06c3c7177ad844d42e3b81fe3349fc9f5",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-cli/SKILL.md",
+        "folderHash": "96254a554e480359de7b685571876f2e7f9ba57d",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/obsidian-cli"
+      },
+      "examplePrompt": "$obsidian-cli — describe your task here"
+    },
+    {
+      "id": "user:codex:obsidian-cli",
+      "name": "obsidian-cli",
+      "origin": "user:codex",
+      "folder": "obsidian-cli",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-cli",
+      "expectedHash": "a583e5b18fa081e91e819da79a6448e06c3c7177ad844d42e3b81fe3349fc9f5",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-cli/SKILL.md",
+        "folderHash": "96254a554e480359de7b685571876f2e7f9ba57d",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/obsidian-cli"
+      },
+      "examplePrompt": "$obsidian-cli — describe your task here"
+    },
+    {
+      "id": "user:agents:obsidian-markdown",
+      "name": "obsidian-markdown",
+      "origin": "user:agents",
+      "folder": "obsidian-markdown",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-markdown",
+      "expectedHash": "940a4b12b4c0ff55bdd30b7e6eb932f52af658d628418ba520de162863396c71",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-markdown/SKILL.md",
+        "folderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/obsidian-markdown"
+      },
+      "examplePrompt": "$obsidian-markdown — describe your task here"
+    },
+    {
+      "id": "user:codex:obsidian-markdown",
+      "name": "obsidian-markdown",
+      "origin": "user:codex",
+      "folder": "obsidian-markdown",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-markdown",
+      "expectedHash": "940a4b12b4c0ff55bdd30b7e6eb932f52af658d628418ba520de162863396c71",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-markdown/SKILL.md",
+        "folderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/obsidian-markdown"
+      },
+      "examplePrompt": "$obsidian-markdown — describe your task here"
+    },
+    {
+      "id": "user:agents:rollout-new-style",
+      "name": "rollout-new-style",
+      "origin": "user:agents",
+      "folder": "rollout-new-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/rollout-new-style",
+      "expectedHash": "658441fbd5997cf5cbcf3277b2e7c7a478c684f06d99b87477d079559706d400",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Roll out the updated styleguide across all existing screen designs in pencil.dev canvas. Use this skill after the styleguide has been updated with a new style and you need to apply it consistently to all pages/frames. Trigger on phrases like \"roll out the new style\", \"apply to all screens\", \"update all pages with the new design\", \"propagate the style changes\", \"apply styleguide to all frames\", or when the user has just finished updating the styleguide and wants it reflected everywhere.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/rollout-new-style"
+      },
+      "examplePrompt": "$rollout-new-style — describe your task here"
+    },
+    {
+      "id": "user:agents:ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
+      "origin": "user:agents",
+      "folder": "ui-ux-pro-max",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/ui-ux-pro-max",
+      "expectedHash": "0cf0de7aa2317dcd2ea004374795d0500264f4bce9fa10d95111ff45f3d62a73",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "UI/UX design intelligence. 50 styles, 21 palettes, 50 font pairings, 20 charts, 9 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, mobile app, .html, .tsx, .vue, .svelte. Elements: button, modal, navbar, sidebar, card, table, form, chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Topics: color palette, accessibility, animation, layout, typography, font pairing, spacing, hover, shadow, gradient. Integrations: shadcn/ui MCP for component search and examples.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/ui-ux-pro-max"
+      },
+      "examplePrompt": "$ui-ux-pro-max — describe your task here"
+    },
+    {
+      "id": "user:agents:update-styleguide",
+      "name": "update-styleguide",
+      "origin": "user:agents",
+      "folder": "update-styleguide",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/update-styleguide",
+      "expectedHash": "0bbec14f7d2b9746392f67722c28cbe965ab45b39bc5eb16249eebadf47a9902",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Update the pencil.dev project styleguide, variables, and design tokens with a chosen design style from exploration. Use this skill when the user has picked a design direction and wants to commit it to the design system — updating fonts, colors, spacing, component styles, and pencil variables. Trigger on phrases like \"update the styleguide with MINIMAL-01\", \"commit this style\", \"apply this to the design system\", \"update my variables\", \"set this as the new style\", or when the user confirms a style exploration and wants to make it the foundation.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/agents/update-styleguide"
+      },
+      "examplePrompt": "$update-styleguide — describe your task here"
+    },
+    {
+      "id": "user:codex:web-inspo-reference",
+      "name": "web-inspo-reference",
+      "origin": "user:codex",
+      "folder": "web-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/web-inspo-reference",
+      "expectedHash": "6e30dac72f336cf3ca92b86343ac975f26abaac0a53391bc3c52b67412a87528",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Find and translate visual website references with Inspo MCP when designing or redesigning a page, screen, or UI section.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/web-inspo-reference"
+      },
+      "examplePrompt": "$web-inspo-reference — describe your task here"
     }
   ],
   "plugins": [],
-  "notes": "User approved review/backup of all personal packages on 2026-09-17. First batch contains seven licensed installed snapshots, not an automated install plan. Remaining packages need provenance/license review. Backups preserve renamed entry files without enabling them. Credentials and built-in/plugin caches excluded.",
+  "notes": "All 44 audited personal package copies archived with exact package hashes under their original roots. User approved private backup on 2026-09-17. Includes 40 discoverable copies and four nonstandard entry files. Unknown licenses/authorship are explicitly recorded, not inferred; no public redistribution permission granted. Built-in/plugin caches and credentials excluded. No installation or ownership adoption enabled.",
   "backups": [
     {
-      "id": "user:codex:figma",
-      "name": "figma",
-      "origin": "user:codex",
-      "folder": "figma",
-      "installRoot": "codex",
+      "id": "user:agents:apply-frontend",
+      "name": "apply-frontend",
+      "origin": "user:agents",
+      "folder": "apply-frontend",
+      "installRoot": "agents",
       "entryFile": "SKILL.md",
-      "backupPath": "skills/codex/figma",
-      "expectedHash": "37bf1a374a68d4aeba9fe6d1734da5b80809d2a45bbb60759f4967fdef7ea95d",
-      "licenseFiles": [
-        "LICENSE.txt"
-      ],
-      "license": "Apache-2.0",
+      "backupPath": "skills/agents/apply-frontend",
+      "expectedHash": "56848045445dca01d7f1a2d25431c00db7a69b28b276cf5a7b4f639c2d106427",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     },
     {
-      "id": "user:codex:figma-implement-design",
-      "name": "figma-implement-design",
-      "origin": "user:codex",
-      "folder": "figma-implement-design",
-      "installRoot": "codex",
+      "id": "user:agents:audit-frontend",
+      "name": "audit-frontend",
+      "origin": "user:agents",
+      "folder": "audit-frontend",
+      "installRoot": "agents",
       "entryFile": "SKILL.md",
-      "backupPath": "skills/codex/figma-implement-design",
-      "expectedHash": "2ec988619cc6518ad9f5d453a69c12ae66fbe3f74eac586be126c2e9d86d3e20",
-      "licenseFiles": [
-        "LICENSE.txt"
-      ],
-      "license": "Apache-2.0",
+      "backupPath": "skills/agents/audit-frontend",
+      "expectedHash": "a62860098ecce930f052d7624a769ce38150d89f6fcb881430df28d47ae45099",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
       "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     },
     {
-      "id": "user:codex:frontend-slides",
-      "name": "frontend-slides",
-      "origin": "user:codex",
-      "folder": "frontend-slides",
-      "installRoot": "codex",
-      "entryFile": "SKILL.md",
-      "backupPath": "skills/codex/frontend-slides",
-      "expectedHash": "1dba1299ad316cf2a13ae9479ea4435798243eef588447c203eca2a58bbe560f",
-      "licenseFiles": [
-        "LICENSE"
-      ],
-      "license": "MIT",
-      "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
-    },
-    {
-      "id": "user:codex:hatch-pet",
-      "name": "hatch-pet",
-      "origin": "user:codex",
-      "folder": "hatch-pet",
-      "installRoot": "codex",
-      "entryFile": "SKILL.md",
-      "backupPath": "skills/codex/hatch-pet",
-      "expectedHash": "bf5b255404b31868719f018d2238cf595771362fe23827c26ec3aaf91ce064a1",
-      "licenseFiles": [
-        "LICENSE.txt"
-      ],
-      "license": "Apache-2.0",
-      "discoverable": true,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "id": "user:agents:brand-extractor",
+      "name": "brand-extractor",
+      "origin": "user:agents",
+      "folder": "brand-extractor",
+      "installRoot": "agents",
+      "entryFile": "SKILL_BrandExtractor.md",
+      "backupPath": "skills/agents/brand-extractor",
+      "expectedHash": "5bffb16cf9ee6f9415051c285d208507b536dc9ea560d7cdbc852718d724b6ff",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": false,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     },
     {
       "id": "user:agents:brand-guidelines",
@@ -187,8 +1267,309 @@
       ],
       "license": "Apache-2.0",
       "discoverable": false,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:codex:brand-inspo-reference",
+      "name": "brand-inspo-reference",
+      "origin": "user:codex",
+      "folder": "brand-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/brand-inspo-reference",
+      "expectedHash": "27f30fc16f596ff297e0fed28bc4f016221bf11db89e2fe0c5289b16819d17b4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:create-brand-guidelines",
+      "name": "create-brand-guidelines",
+      "origin": "user:agents",
+      "folder": "create-brand-guidelines",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/create-brand-guidelines",
+      "expectedHash": "ac3600205220ac4b88ac28394649ad40d62b9e49acf341fe204f7df1baabdd47",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:create-styleguide",
+      "name": "create-styleguide",
+      "origin": "user:agents",
+      "folder": "create-styleguide",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/create-styleguide",
+      "expectedHash": "365259318b674f7a8e9a463294773514b2f3bae684d4e4fb17f7fe1022a9dd81",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:deck-inspo-reference",
+      "name": "deck-inspo-reference",
+      "origin": "user:codex",
+      "folder": "deck-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/deck-inspo-reference",
+      "expectedHash": "c00c0dbf51b01e15b7ce521c97be7581e05fe82b5375d4ff5b8c760dd115b75a",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:defuddle",
+      "name": "defuddle",
+      "origin": "user:agents",
+      "folder": "defuddle",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/defuddle",
+      "expectedHash": "4745d8653a718982cd9afab4c0b154764a3ba9f4fd704a927dad32103d4b7194",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/defuddle/SKILL.md",
+        "folderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+        "installedAt": "2026-05-19T11:58:13.099Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:defuddle",
+      "name": "defuddle",
+      "origin": "user:codex",
+      "folder": "defuddle",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/defuddle",
+      "expectedHash": "4745d8653a718982cd9afab4c0b154764a3ba9f4fd704a927dad32103d4b7194",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/defuddle/SKILL.md",
+        "folderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+        "installedAt": "2026-05-19T11:58:13.099Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:design-taste-frontend",
+      "name": "design-taste-frontend",
+      "origin": "user:codex",
+      "folder": "taste-skill",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/taste-skill",
+      "expectedHash": "49db9d080656d223b69213f3ef62ad6f7961f9101217d2ba5aae03a013e3cc73",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:explore-style",
+      "name": "explore-style",
+      "origin": "user:agents",
+      "folder": "explore-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/explore-style",
+      "expectedHash": "8427d000e89be4bc58b46b6d399d4f14e9ae054c4e3cd1003f31cbed9fed37fd",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:extract-style",
+      "name": "extract-style",
+      "origin": "user:agents",
+      "folder": "extract-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/extract-style",
+      "expectedHash": "7b395571b324af3b20211d71171b9d47897e9f8db9d387818bff12fa77a4dce7",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:figma",
+      "name": "figma",
+      "origin": "user:codex",
+      "folder": "figma",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma",
+      "expectedHash": "37bf1a374a68d4aeba9fe6d1734da5b80809d2a45bbb60759f4967fdef7ea95d",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:codex:figma-implement-design",
+      "name": "figma-implement-design",
+      "origin": "user:codex",
+      "folder": "figma-implement-design",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/figma-implement-design",
+      "expectedHash": "2ec988619cc6518ad9f5d453a69c12ae66fbe3f74eac586be126c2e9d86d3e20",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:agents:framer",
+      "name": "framer",
+      "origin": "user:agents",
+      "folder": "framer",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer",
+      "expectedHash": "84ee0414e7ad2b2c4f2a2d1340b1075c60215a5a784f160f6529e0bce6b5d4be",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:framer-code-components",
+      "name": "framer-code-components",
+      "origin": "user:agents",
+      "folder": "framer-code-components",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer-code-components",
+      "expectedHash": "de430ba67e6a80b5ee85e34249eac02906b2bb9b644478a885bd27efa0b3e1ce",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:framer-project-kFuHhQhO9BaxXsHYFc98",
+      "name": "framer-project-kFuHhQhO9BaxXsHYFc98",
+      "origin": "user:agents",
+      "folder": "framer-project-kFuHhQhO9BaxXsHYFc98",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/framer-project-kFuHhQhO9BaxXsHYFc98",
+      "expectedHash": "d3e74eff170088920c017791c0f9e46e03de264ca6e209194e92ae7772077c83",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     },
     {
       "id": "user:agents:frontend-design",
@@ -204,8 +1585,485 @@
       ],
       "license": "Apache-2.0",
       "discoverable": false,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:codex:frontend-slides",
+      "name": "frontend-slides",
+      "origin": "user:codex",
+      "folder": "frontend-slides",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/frontend-slides",
+      "expectedHash": "1dba1299ad316cf2a13ae9479ea4435798243eef588447c203eca2a58bbe560f",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "license": "MIT",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:agents:get-ui-screens",
+      "name": "get-ui-screens",
+      "origin": "user:agents",
+      "folder": "get-ui-screens",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/get-ui-screens",
+      "expectedHash": "f1bdf156095a7c2e0bafeb7eae8d3cc041dbd9f96351314557142548012fa87f",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-core",
+      "name": "gsap-core",
+      "origin": "user:codex",
+      "folder": "gsap-core",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-core",
+      "expectedHash": "652ce73a7351d81739863cdf85c22d3e937edab652d8e64664efd0f5427ca2f2",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-frameworks",
+      "name": "gsap-frameworks",
+      "origin": "user:codex",
+      "folder": "gsap-frameworks",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-frameworks",
+      "expectedHash": "1b40a294efdd7f0e27aa274328ad251211c501c50899ebcf42d257b159d066c7",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-performance",
+      "name": "gsap-performance",
+      "origin": "user:codex",
+      "folder": "gsap-performance",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-performance",
+      "expectedHash": "fad33af3f70fd28cdfde552568ca19692c6060313171e842723ae5fa87bdad60",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-plugins",
+      "name": "gsap-plugins",
+      "origin": "user:codex",
+      "folder": "gsap-plugins",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-plugins",
+      "expectedHash": "44088f68ea74dc45ed10d0f4a25949a1f3f7f20a01061191cd0481b7606686d6",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-react",
+      "name": "gsap-react",
+      "origin": "user:codex",
+      "folder": "gsap-react",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-react",
+      "expectedHash": "1b28f743c0dd9b196d6a50b4e7e1beeb513cfdb7f63419e631d9c655b77142aa",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-scrolltrigger",
+      "name": "gsap-scrolltrigger",
+      "origin": "user:codex",
+      "folder": "gsap-scrolltrigger",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-scrolltrigger",
+      "expectedHash": "d11d81c1f34d6044c55cb845be2f57bdc5ee788ced68c7cf1168f8836999fcb8",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-timeline",
+      "name": "gsap-timeline",
+      "origin": "user:codex",
+      "folder": "gsap-timeline",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-timeline",
+      "expectedHash": "5721087c0249dc10709123883f3a111539db975d09c1874c1655ba948d98cacc",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:gsap-utils",
+      "name": "gsap-utils",
+      "origin": "user:codex",
+      "folder": "gsap-utils",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/gsap-utils",
+      "expectedHash": "7fdc8b26107dc08441bdc9e08bb64f77b6d3dc12a6694ac6ce86ebb753df3982",
+      "licenseFiles": [],
+      "license": "MIT declared in frontmatter; notice review pending",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:hatch-pet",
+      "name": "hatch-pet",
+      "origin": "user:codex",
+      "folder": "hatch-pet",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/hatch-pet",
+      "expectedHash": "bf5b255404b31868719f018d2238cf595771362fe23827c26ec3aaf91ce064a1",
+      "licenseFiles": [
+        "LICENSE.txt"
+      ],
+      "license": "Apache-2.0",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:agents:json-canvas",
+      "name": "json-canvas",
+      "origin": "user:agents",
+      "folder": "json-canvas",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/json-canvas",
+      "expectedHash": "cc5deff26278f41b5089a4574cf6bc15a0260d4acfd1488dffbb24467fedb573",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/json-canvas/SKILL.md",
+        "folderHash": "9df7971db7ffebf96f2a207840b9f4765aa11b04",
+        "installedAt": "2026-05-19T11:58:13.100Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:json-canvas",
+      "name": "json-canvas",
+      "origin": "user:codex",
+      "folder": "json-canvas",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/json-canvas",
+      "expectedHash": "cc5deff26278f41b5089a4574cf6bc15a0260d4acfd1488dffbb24467fedb573",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/json-canvas/SKILL.md",
+        "folderHash": "9df7971db7ffebf96f2a207840b9f4765aa11b04",
+        "installedAt": "2026-05-19T11:58:13.100Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:logo-inspo-reference",
+      "name": "logo-inspo-reference",
+      "origin": "user:codex",
+      "folder": "logo-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/logo-inspo-reference",
+      "expectedHash": "da0373551388db686948d0c4d1ebf0d874e4c6b0cabf7f3d43fe824012a1b830",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:obsidian-bases",
+      "name": "obsidian-bases",
+      "origin": "user:agents",
+      "folder": "obsidian-bases",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-bases",
+      "expectedHash": "b8a8a80c250a07db2ccd22956d85cfaf139b38156c1e8f2e8994706e5015c4a4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-bases/SKILL.md",
+        "folderHash": "4bef60bb848bfb02b4172b552626d5741b0d4057",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:obsidian-bases",
+      "name": "obsidian-bases",
+      "origin": "user:codex",
+      "folder": "obsidian-bases",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-bases",
+      "expectedHash": "b8a8a80c250a07db2ccd22956d85cfaf139b38156c1e8f2e8994706e5015c4a4",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-bases/SKILL.md",
+        "folderHash": "4bef60bb848bfb02b4172b552626d5741b0d4057",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:obsidian-cli",
+      "name": "obsidian-cli",
+      "origin": "user:agents",
+      "folder": "obsidian-cli",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-cli",
+      "expectedHash": "a583e5b18fa081e91e819da79a6448e06c3c7177ad844d42e3b81fe3349fc9f5",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-cli/SKILL.md",
+        "folderHash": "96254a554e480359de7b685571876f2e7f9ba57d",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:obsidian-cli",
+      "name": "obsidian-cli",
+      "origin": "user:codex",
+      "folder": "obsidian-cli",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-cli",
+      "expectedHash": "a583e5b18fa081e91e819da79a6448e06c3c7177ad844d42e3b81fe3349fc9f5",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-cli/SKILL.md",
+        "folderHash": "96254a554e480359de7b685571876f2e7f9ba57d",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:obsidian-markdown",
+      "name": "obsidian-markdown",
+      "origin": "user:agents",
+      "folder": "obsidian-markdown",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/obsidian-markdown",
+      "expectedHash": "940a4b12b4c0ff55bdd30b7e6eb932f52af658d628418ba520de162863396c71",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-markdown/SKILL.md",
+        "folderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:obsidian-markdown",
+      "name": "obsidian-markdown",
+      "origin": "user:codex",
+      "folder": "obsidian-markdown",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/obsidian-markdown",
+      "expectedHash": "940a4b12b4c0ff55bdd30b7e6eb932f52af658d628418ba520de162863396c71",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": {
+        "source": "kepano/obsidian-skills",
+        "skillPath": "skills/obsidian-markdown/SKILL.md",
+        "folderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
+        "installedAt": "2026-05-19T11:58:13.101Z",
+        "notes": "Local installer record; exact upstream revision and license still require verification"
+      },
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:rollout-new-style",
+      "name": "rollout-new-style",
+      "origin": "user:agents",
+      "folder": "rollout-new-style",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/rollout-new-style",
+      "expectedHash": "658441fbd5997cf5cbcf3277b2e7c7a478c684f06d99b87477d079559706d400",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     },
     {
       "id": "user:agents:skill-creator",
@@ -221,8 +2079,73 @@
       ],
       "license": "Apache-2.0",
       "discoverable": false,
-      "provenance": "Exact installed snapshot; upstream commit not yet established",
-      "managed": false
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "Preserve included licenses/notices"
+      }
+    },
+    {
+      "id": "user:agents:ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
+      "origin": "user:agents",
+      "folder": "ui-ux-pro-max",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/ui-ux-pro-max",
+      "expectedHash": "0cf0de7aa2317dcd2ea004374795d0500264f4bce9fa10d95111ff45f3d62a73",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:agents:update-styleguide",
+      "name": "update-styleguide",
+      "origin": "user:agents",
+      "folder": "update-styleguide",
+      "installRoot": "agents",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/agents/update-styleguide",
+      "expectedHash": "0bbec14f7d2b9746392f67722c28cbe965ab45b39bc5eb16249eebadf47a9902",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:web-inspo-reference",
+      "name": "web-inspo-reference",
+      "origin": "user:codex",
+      "folder": "web-inspo-reference",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/web-inspo-reference",
+      "expectedHash": "6e30dac72f336cf3ca92b86343ac975f26abaac0a53391bc3c52b67412a87528",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
     }
   ]
 }

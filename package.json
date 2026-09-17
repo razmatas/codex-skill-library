@@ -9,6 +9,7 @@
     "scan": "node scripts/scan.js",
     "audit": "node scripts/audit.js",
     "sync:plan": "node scripts/sync.js --dry-run",
+    "restore:plan": "node scripts/restore.js --dry-run",
     "report": "node scripts/report.js",
     "test": "node --test",
     "service:install": "node scripts/service.js install",
