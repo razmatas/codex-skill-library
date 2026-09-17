@@ -36,6 +36,8 @@ Duplicate names stay separate by origin. Installation identity includes skill-ro
 
 ## Status dots
 
+Star any row to save it, then open the Favourites tab. Preferences are saved privately in the dashboard host's ignored data/favourites.json, shared across browsers/laptops, and preserved during service redeploy. Favourites track skill identity/origin, so duplicate copies can be starred separately. They do not install or enable anything. Missing/stale inventories do not erase saved favourites. Permitted tailnet users can edit this shared list; cross-site browser writes are rejected.
+
 - Green: observed installed/enabled; dependencies and authentication not checked.
 - Red: absent from a fresh, sufficiently complete inventory.
 - Amber: disabled, cache-only/enablement unverified, different package hash, or fingerprint unavailable.

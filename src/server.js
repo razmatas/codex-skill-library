@@ -36,6 +36,10 @@ export async function createApp(config, { directory = dataDir, scanner = scan } 
   try { token = (await readFile(tokenFile, 'utf8')).trim(); }
   catch (e) { if (e.code !== 'ENOENT') throw e; token = randomBytes(32).toString('hex'); await writeFile(tokenFile, token + '\n', { mode: 0o600, flag: 'wx' }); }
   const snapshots = new Map();
+  const favouriteFile = path.join(directory, 'favourites.json');
+  const savedFavourites = await readJson(favouriteFile, []);
+  if (!Array.isArray(savedFavourites) || savedFavourites.length > 4000 || !savedFavourites.every(id => typeof id === 'string' && id.length <= 600)) throw new Error('Invalid saved favourites');
+  let favourites = new Set(savedFavourites), favouriteWrite = Promise.resolve();
   for (const machine of config.machines) {
     const saved = await readJson(path.join(directory, `${machine.id}.json`), null);
     if (saved) snapshots.set(machine.id, saved);
@@ -66,7 +70,35 @@ export async function createApp(config, { directory = dataDir, scanner = scan } 
       const url = new URL(req.url, `http://${req.headers.host}`);
       if (req.method === 'GET' && url.pathname === '/api/catalog') {
         const library = await readJson(path.join(projectRoot, 'library.json'), { skills: [] });
-        return send(200, { ...buildCatalog(config, [...snapshots.values()], library), lastScanError });
+        return send(200, { ...buildCatalog(config, [...snapshots.values()], library), favourites: [...favourites], lastScanError });
+      }
+      if (req.method === 'POST' && url.pathname === '/api/favourites') {
+        // Shared tailnet preference, not a skill mutation. Reject cross-site writes.
+        let origin;
+        try { origin = new URL(req.headers.origin); } catch { return send(403, { error: 'Same-origin request required' }); }
+        if (origin.host !== req.headers.host || !['http:', 'https:'].includes(origin.protocol) || req.headers['x-skill-library-request'] !== 'favourites') return send(403, { error: 'Same-origin request required' });
+        if (req.headers['content-type'] !== 'application/json') return send(415, { error: 'JSON required' });
+        let body = '', size = 0;
+        for await (const chunk of req) {
+          size += chunk.length;
+          if (size > 4096) return send(413, { error: 'Preference request too large' });
+          body += chunk.toString();
+        }
+        let value;
+        try { value = JSON.parse(body); } catch { return send(400, { error: 'Invalid JSON' }); }
+        if (typeof value?.id !== 'string' || value.id.length > 600 || typeof value.favourite !== 'boolean') return send(400, { error: 'Invalid favourite' });
+        const library = await readJson(path.join(projectRoot, 'library.json'), { skills: [] });
+        if (!favourites.has(value.id) && ![...snapshots.values()].some(s => s.skills.some(skill => skill.id === value.id)) && !library.skills.some(skill => skill.id === value.id)) return send(400, { error: 'Unknown skill' });
+        const update = favouriteWrite.then(async () => {
+          const next = new Set(favourites);
+          if (value.favourite) next.add(value.id); else next.delete(value.id);
+          if (next.size > 4000) throw new Error('Too many favourites');
+          await atomicJson(favouriteFile, [...next]);
+          favourites = next;
+          return [...next];
+        });
+        favouriteWrite = update.catch(() => {});
+        return send(200, { favourites: await update });
       }
       if (req.method === 'GET' && url.pathname === '/api/health') return send(200, { ok: !lastScanError, machineId: config.machineId, scanIntervalMs: config.scanIntervalMs });
       if (req.method === 'POST' && url.pathname === '/api/inventory') {

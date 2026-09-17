@@ -60,6 +60,32 @@ test('uploaded inventory rejects local overwrite, duplicate IDs and invalid hash
   assert.throws(()=>validateInventory(snapshot('gabs-laptop',[{...skill,hash:'bad'}]),config));
   assert.ok(validateInventory(snapshot('gabs-laptop'),config).receivedAt);
 });
+test('shared favourites persist across restarts, survive missing skills and reject cross-site writes', async () => {
+  const directory=await temporary();
+  async function start(skills) {
+    const app=await createApp(config,{directory,scanner:async()=>snapshot('raz-laptop',skills)});
+    const server=http.createServer(app.handler);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+    const base=`http://127.0.0.1:${server.address().port}`;
+    return {base,close:async()=>{app.close();await new Promise(resolve=>server.close(resolve));}};
+  }
+  let running=await start([skill,{...skill,id:'user:agents:second',name:'second'}]);
+  try {
+    const write=(id,favourite,origin=running.base)=>fetch(running.base+'/api/favourites',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','X-Skill-Library-Request':'favourites'},body:JSON.stringify({id,favourite})});
+    assert.equal((await write(skill.id,true,'https://evil.example')).status,403);
+    assert.equal((await fetch(running.base+'/api/favourites',{method:'POST',body:'{}'})).status,403);
+    assert.equal((await write('unknown',true)).status,400);
+    assert.equal((await write(skill.id,'true')).status,400);
+    const updates=await Promise.all([write(skill.id,true),write('user:agents:second',true)]);
+    assert.ok(updates.every(r=>r.status===200));
+    assert.deepEqual(new Set(JSON.parse(await readFile(path.join(directory,'favourites.json'),'utf8'))),new Set([skill.id,'user:agents:second']));
+    await running.close();running=await start([]);
+    const catalog=await (await fetch(running.base+'/api/catalog')).json();
+    assert.equal(catalog.favourites.length,2);
+    assert.equal((await write(skill.id,false)).status,200);
+    assert.deepEqual((await (await fetch(running.base+'/api/catalog')).json()).favourites,['user:agents:second']);
+    assert.equal((await fetch(running.base+'/data/favourites.json')).status,404);
+  } finally {await running.close();}
+});
 test('server restricts host, protects upload, accepts valid reporter, persists snapshots', async () => {
   const directory=await temporary(); const app=await createApp(config,{directory,scanner:async()=>snapshot()});
   const server=http.createServer(app.handler); await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));

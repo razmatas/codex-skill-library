@@ -1,22 +1,34 @@
 const $ = selector => document.querySelector(selector);
 let catalog = null, activeTab = 'all', selectedId = null;
+const pendingFavourites = new Set();
+const star = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m12 3 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9Z"/></svg>';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 const relative = timestamp => { if (!timestamp) return 'Never checked'; const seconds = Math.max(0, Math.floor((Date.now() - Date.parse(timestamp))/1000)); return seconds < 60 ? `${seconds}s ago` : `${Math.floor(seconds/60)}m ago`; };
 const kindLabel = kind => ({personal:'Personal',builtin:'Built-in',plugin:'Plugin',project:'Project'}[kind] || kind);
+$('#tabs').insertAdjacentHTML('beforeend', '<button class="tab" data-tab="favourites" aria-pressed="false">Favourites <span id="count-favourites"></span></button>');
+$('th.number').textContent = 'Save';
 function render() {
   if (!catalog) return;
   $('#total').textContent = catalog.skills.length;
   $('#count-all').textContent = catalog.skills.length;
   $('#count-builtin').textContent = catalog.skills.filter(x => x.kind === 'builtin').length;
   $('#count-mine').textContent = catalog.skills.filter(x => x.kind !== 'builtin').length;
+  const favourites = new Set(catalog.favourites || []);
+  $('#count-favourites').textContent = catalog.skills.filter(x => favourites.has(x.id)).length;
   $('#machine-summary').innerHTML = catalog.machines.map(machine => `<div class="machine-block"><strong><i class="dot ${machine.state === 'live' ? 'installed' : 'unknown'}"></i>${escape(machine.name)}</strong><p>${machine.state === 'unconnected' ? 'Not connected yet' : `${machine.count} skills · ${machine.state === 'stale' ? 'stale · ' : ''}${relative(machine.receivedAt || machine.scannedAt)}`}</p></div>`).join('');
   catalog.machines.forEach((machine, i) => { const heading = $(`#machine-${i}`); if (heading) heading.textContent = machine.name; });
   const local = catalog.machines.find(x => x.scannedAt);
   $('#updated').textContent = local ? `Last received ${relative(local.receivedAt || local.scannedAt)}` : 'Waiting for first scan';
   const query = $('#search').value.toLowerCase().trim(), source = $('#source').value;
-  const rows = catalog.skills.filter(skill => (activeTab === 'all' || (activeTab === 'builtin' ? skill.kind === 'builtin' : skill.kind !== 'builtin')) && (source === 'all' || skill.kind === source) && `${skill.name} ${skill.description} ${skill.sourceLabel}`.toLowerCase().includes(query));
+  const rows = catalog.skills.filter(skill => (activeTab === 'all' || (activeTab === 'favourites' ? favourites.has(skill.id) : activeTab === 'builtin' ? skill.kind === 'builtin' : skill.kind !== 'builtin')) && (source === 'all' || skill.kind === source) && `${skill.name} ${skill.description} ${skill.sourceLabel}`.toLowerCase().includes(query));
   $('#skills').innerHTML = rows.length ? rows.map((skill, index) => `<tr><td class="number">${String(index+1).padStart(2,'0')}</td><td><button class="skill-name" data-detail="${escape(skill.id)}">${escape(skill.name)}</button>${skill.duplicate ? '<span class="duplicate">duplicate name</span>' : ''}<p class="description" title="${escape(skill.description)}">${escape(skill.description)}</p></td><td><div class="prompt"><code title="${escape(skill.examplePrompt)}">$${escape(skill.name)}</code><button class="copy" data-copy="${escape(skill.id)}" aria-label="Copy invocation starter for ${escape(skill.name)}" title="Copy invocation starter">⧉</button></div></td><td><span class="badge">${escape(kindLabel(skill.kind))}</span><p class="source-detail">${escape(skill.sourceLabel || skill.origin)}</p></td>${skill.statuses.map(status => `<td class="status-cell"><span class="dot ${escape(status.state)}" role="img" aria-label="${escape(status.label)}" title="${escape(status.label)}"></span>${status.state !== 'installed' ? `<small class="status-label">${escape(status.label)}</small>` : ''}</td>`).join('')}</tr>`).join('') : '<tr><td colspan="6" class="empty">No skills match. Try a different search or source.</td></tr>';
   $('#shown').textContent = `Showing ${rows.length} of ${catalog.skills.length} skills · auto-refreshes`;
+  $('#skills').querySelectorAll('tr').forEach((row, index) => {
+    const skill = rows[index]; if (!skill) return;
+    const saved = favourites.has(skill.id);
+    row.querySelector('.number').innerHTML = `<button class="favourite${saved ? ' saved' : ''}" data-favourite="${escape(skill.id)}" aria-pressed="${saved}" aria-label="${saved ? 'Remove' : 'Add'} ${escape(skill.name)} ${saved ? 'from' : 'to'} favourites" title="${saved ? 'Remove favourite' : 'Add favourite'}" ${pendingFavourites.has(skill.id) ? 'disabled' : ''}>${star}</button>`;
+  });
+  if (!rows.length && activeTab === 'favourites') $('.empty').textContent = favourites.size ? 'No favourites match these filters.' : 'Star a skill in All skills to save it here.';
   $('#manifest-status').textContent = catalog.libraryCount ? `${catalog.libraryCount} approved skills in the desired-setup manifest.` : 'GitHub-ready scaffold: no approved skill packages or upstream pins have been added yet.';
   $('#warnings').innerHTML = catalog.machines.map(machine => machine.warnings.length ? `<details><summary>${escape(machine.name)}: ${machine.warnings.length} scan warnings</summary><ul>${machine.warnings.map(w => `<li>${escape(w)}</li>`).join('')}</ul></details>` : '').join('');
 }
@@ -56,6 +68,17 @@ $('#tabs').addEventListener('click', event => {
 $('#search').addEventListener('input', render); $('#source').addEventListener('change', render);
 document.addEventListener('keydown', event => { if (event.key === '/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName) && !$('#detail').open) { event.preventDefault(); $('#search').focus(); } });
 document.addEventListener('click', async event => {
+  const favourite = event.target.closest('[data-favourite]');
+  if (favourite && !pendingFavourites.has(favourite.dataset.favourite)) {
+    const id = favourite.dataset.favourite;
+    pendingFavourites.add(id); favourite.disabled = true;
+    try {
+      const response = await fetch('/api/favourites', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Skill-Library-Request': 'favourites' }, body: JSON.stringify({ id, favourite: !(catalog.favourites || []).includes(id) }) });
+      if (!response.ok) throw new Error(`Could not save favourite (${response.status})`);
+      catalog.favourites = (await response.json()).favourites;
+    } catch (e) { $('#error').hidden = false; $('#error').textContent = `${e.message}. Your saved favourites have not changed; try again.`; }
+    finally { pendingFavourites.delete(id); render(); }
+  }
   const detail = event.target.closest('[data-detail]'); if (detail) showDetail(detail.dataset.detail);
   const copy = event.target.closest('[data-copy]');
   if (copy) {
