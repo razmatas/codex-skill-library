@@ -2,6 +2,14 @@
 
 Do this after the dashboard is running and this project is available on the other computer (private GitHub checkout or deliberate local transfer). Do not use a remote-control Codex task to assume the other user's home path or overwrite their skills.
 
+The private repository is https://github.com/razmatas/codex-skill-library . On Gabs laptop, use an authenticated GitHub account with access and clone it into an appropriate local code-project folder:
+
+```sh
+gh repo clone razmatas/codex-skill-library
+```
+
+Then give Codex the prompt below. Local configuration and the reporter token are intentionally not in GitHub and must be set up separately.
+
 ## Prompt to give Codex on Gabs laptop
 
 > Set up this Codex Skill Library checkout as the reporter for Gabs laptop. Read README.md and this handoff first. Preserve every existing skill and config file. Inventory user, system, admin, and plugin skills before proposing reconciliation. Create ignored config.local.json with machineId `gabs-laptop`, machineName `Gabs laptop`, and reportUrl `http://100.108.148.72:4317/api/inventory`. Preserve the two configured machine IDs and use 60-second scans / five-minute staleness. Do not start a dashboard server or assign Raz's Tailscale IP to this laptop. Obtain the reporter token through a private transfer, store it only in ignored data/report-token with mode 0600, and never print or commit it. Run the tests and a single report, verify the central dashboard shows a fresh Gabs inventory, then request any needed permission to install `node scripts/service.js install --reporter`. Do not copy, update, remove, auto-commit, or overwrite skills. Report missing skills, package drift, duplicate names, disabled plugins, and unverifiable enablement separately. Skills in different user roots remain separate identities. GitHub backup and approved-skill installation need a reviewed manifest first.

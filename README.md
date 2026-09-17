@@ -49,7 +49,7 @@ Follow [docs/SECOND-MACHINE.md](docs/SECOND-MACHINE.md). The reporter scans loca
 
 ## GitHub / approved library
 
-See [docs/GITHUB.md](docs/GITHUB.md). `library.json` is the approved desired setup; the live scanner inventory is separate. `skills/` is reserved for reviewed custom packages. Initially both are deliberately empty. No GitHub remote or backup exists merely because this scaffold exists.
+Private source repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library). See [docs/GITHUB.md](docs/GITHUB.md). `library.json` is the approved desired setup; the live scanner inventory is separate. `skills/` is reserved for reviewed custom packages. Initially both are deliberately empty: the source project is backed up, but your installed skill packages are not yet backed up or synchronized.
 
 Current version: live read-only inventory, remote-reporting protocol, background service helper, comparison tests, and handoff docs. Automatic install/overwrite reconciliation is not implemented. Configure and review the approved manifest before adding that capability.
 

@@ -1,6 +1,6 @@
 # Private GitHub source of truth
 
-Recommended repository name: codex-skill-library, private. This build does not create a remote, publish skill content, or imply that a backup already exists.
+Private repository: [razmatas/codex-skill-library](https://github.com/razmatas/codex-skill-library), created with Raz's approval on 2026-09-17. It backs up the dashboard/scanner source and setup docs. It does not yet back up installed skill packages; library.json and skills/ remain review-ready scaffolds.
 
 Commit dashboard/scanner source, tests, documentation, config.example.json, library.json, and reviewed custom packages under skills/. Exclude data/, config.local.json, tokens, .env files, plugin caches, dependency folders, account sessions, and machine-specific configuration.
 
