@@ -8,11 +8,11 @@ The private repository is https://github.com/razmatas/codex-skill-library . On G
 gh repo clone razmatas/codex-skill-library
 ```
 
-Then give Codex the prompt below. Local configuration and the reporter token are intentionally not in GitHub and must be set up separately.
+Then give Codex the prompt below. Local configuration and the reporter token are intentionally not in GitHub and must be set up separately. Once those two local files are ready, the intended happy path is one command: `npm run setup:gabs`.
 
 ## Prompt to give Codex on Gabs laptop
 
-> Set up this Codex Skill Library checkout as the reporter for Gabs laptop. Read README.md and this handoff first. Preserve every existing skill and config file. Inventory user, system, admin, and plugin skills before proposing reconciliation. Create ignored config.local.json with machineId `gabs-laptop`, machineName `Gabs laptop`, and reportUrl `http://100.108.148.72:4317/api/inventory`. Preserve the two configured machine IDs and use 60-second scans / five-minute staleness. Do not start a dashboard server or assign Raz's Tailscale IP to this laptop. Obtain the reporter token through a private transfer, store it only in ignored data/report-token with mode 0600, and never print or commit it. Run the tests and a single report, verify the central dashboard shows a fresh Gabs inventory, then request any needed permission to install `node scripts/service.js install --reporter`. Do not copy, update, remove, auto-commit, or overwrite skills. Report missing skills, package drift, duplicate names, disabled plugins, and unverifiable enablement separately. Skills in different user roots remain separate identities. GitHub backup and approved-skill installation need a reviewed manifest first.
+> Finish this Codex Skill Library setup for Gabs laptop. Pull the current main branch without resetting local changes. Read README.md and this handoff. Preserve every existing skill and config file. Confirm ignored config.local.json uses machineId `gabs-laptop`, machineName `Gabs laptop`, and reportUrl `http://100.108.148.72:4317/api/inventory`. Confirm the privately transferred data/report-token exists with mode 0600 without printing it. Run `npm test`, then `npm run setup:gabs`. This installs only absent reviewed personal skills, leaves matching skills untouched, skips every conflict or update (including a differing taste-skill), sends one report, and installs the background reporter. Never delete, rename, merge, adopt, or overwrite an existing skill to resolve a conflict. Report the installed, matching and skipped counts, then verify the central dashboard shows a fresh Gabs inventory.
 
 ## Configuration example
 
@@ -37,15 +37,14 @@ Use apply_patch or a trusted local editor for config creation. The existing temp
 
 ```sh
 npm test
-npm run report
-node scripts/service.js install --reporter
+npm run setup:gabs
 ```
 
 The reporter service deploys to `~/Library/Application Support/Codex Skill Library/reporter/`, with logs, inventories and token in its `data/` folder. If the host is asleep, reports fail and retry each minute while local snapshots continue to be saved. This is normal; the central dashboard marks inventories stale after five minutes. Removing the reporter: `node scripts/service.js remove --reporter`. To redeploy changed code/config, remove then reinstall from the same checkout; credentials and snapshots are preserved.
 
 ## Acceptance checks
 
-After reporter pairing, follow RESTORE.md to review and explicitly apply the private snapshot. Cloning alone never installs skills. Do not reset Git changes or overwrite a mismatching unmanaged skill.
+After reporter pairing, install only missing personal skills with `npm run restore:missing`. It leaves matching packages alone and skips every differing or managed-update target. Then run `npm run restore:plan` again and send one report. Do not reset Git changes or overwrite a mismatching unmanaged skill.
 
 1. Central Gabs column is live and last received is recent.
 2. A temporary test skill created in a dedicated folder under a configured skill root appears after the next scan and disappears after removing only that test folder. Never delete real skills for testing.

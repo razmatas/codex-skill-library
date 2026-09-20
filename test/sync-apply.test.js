@@ -49,3 +49,16 @@ test('plain-copy validation rejects package links without installing them', asyn
   const plan = await planSync(f.manifest, f.options);
   await assert.rejects(applySync(f.manifest, f.options, planDigest(plan)), /symlink/);
 });
+test('install-missing policy installs absent packages while preserving conflicts', async () => {
+  const f = await fixture(), target = path.join(f.options.roots.agents, 'example');
+  await mkdir(target, { recursive: true }); await writeFile(path.join(target, 'SKILL.md'), 'local taste-skill equivalent');
+  const secondSource = path.join(f.options.projectRoot, 'skills/second');
+  await mkdir(secondSource); await writeFile(path.join(secondSource, 'SKILL.md'), '---\nname: second\ndescription: Missing safe package\n---\nReviewed');
+  f.manifest.skills.push({ managed:true, name:'second', folder:'second', installRoot:'agents', expectedHash:await packageHash(secondSource), source:{type:'custom',path:'skills/second'} });
+  const plan = await planSync(f.manifest, f.options);
+  assert.deepEqual(plan.map(x=>x.action),['conflict','install']);
+  const results = await applySync(f.manifest, f.options, planDigest(plan), { applyActions:['install'], skipOtherActions:true });
+  assert.equal(results[0].skipped,true); assert.equal(results[1].applied,true);
+  assert.equal(await readFile(path.join(target,'SKILL.md'),'utf8'),'local taste-skill equivalent');
+  assert.equal(await packageHash(path.join(f.options.roots.agents,'second')),f.manifest.skills[1].expectedHash);
+});

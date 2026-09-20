@@ -10,6 +10,8 @@
     "audit": "node scripts/audit.js",
     "sync:plan": "node scripts/sync.js --dry-run",
     "restore:plan": "node scripts/restore.js --dry-run",
+    "restore:missing": "node scripts/restore.js --install-missing",
+    "setup:gabs": "node scripts/setup-gabs.js",
     "report": "node scripts/report.js",
     "test": "node --test",
     "service:install": "node scripts/service.js install",

@@ -9,9 +9,15 @@ npm test
 npm run restore:plan
 ```
 
-Review every action. Identical packages remain unchanged and are not adopted. Absent packages can be installed. Different unmanaged packages or local edits are conflicts; the command refuses the whole apply until these are resolved deliberately. Never delete a real skill to bypass a conflict. Managed unchanged originals can be updated with a retained backup. Four renamed entry files are backup-only and are intentionally excluded from normal restore; do not rename/enable them without a separate compatibility review.
+Review every action. Identical packages remain unchanged and are not adopted. Different unmanaged packages or local edits are conflicts. The normal missing-only command installs absent packages and skips every conflict or update, so an unrelated package such as `taste-skill` cannot block safe installs and is never overwritten. Four renamed entry files are backup-only and intentionally excluded.
 
-After reviewing the digest printed by the dry-run, explicitly approve it on that machine:
+```sh
+npm run restore:missing
+```
+
+This is the recommended cross-machine sync command. It rechecks the complete plan and each target immediately before copying. Its summary lists installed, matching and skipped packages. Re-run `npm run restore:plan` afterward to review remaining differences.
+
+Only when you deliberately want to update packages previously managed by this tool, review the digest and use the advanced apply form:
 
 ```sh
 node scripts/restore.js --apply=FULL_DIGEST_FROM_THIS_MACHINE

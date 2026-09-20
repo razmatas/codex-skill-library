@@ -21,7 +21,7 @@ async function plainTree(directory) {
 
 // Explicit caller approval is tied to the exact current plan. Never call from scans/reports.
 // Advisory locks coordinate this tool only; stop other installers while applying.
-export async function applySync(manifest, options, approvedDigest) {
+export async function applySync(manifest, options, approvedDigest, policy = {}) {
   const { roots, projectRoot, receiptFile } = options;
   if (!receiptFile || !path.isAbsolute(receiptFile)) throw new Error('Absolute receipt file required');
   await safeAncestors(path.dirname(receiptFile));
@@ -33,11 +33,13 @@ export async function applySync(manifest, options, approvedDigest) {
     const receipts = options.receipts || {};
     const plan = await planSync(manifest, options);
     if (planDigest(plan) !== approvedDigest) throw new Error('Plan changed; review a new dry-run');
-    if (plan.some(row => !['unchanged', 'install', 'update-with-backup'].includes(row.action))) throw new Error('Plan contains unresolved conflicts or unprepared sources');
+    const applyActions = new Set(policy.applyActions || ['install', 'update-with-backup']);
+    if (!policy.skipOtherActions && plan.some(row => !['unchanged', ...applyActions].includes(row.action))) throw new Error('Plan contains unresolved conflicts or unprepared sources');
     const entries = validateManagedEntries(manifest);
     for (let i = 0; i < plan.length; i++) {
       const row = plan[i], entry = entries[i];
       if (row.action === 'unchanged') { results.push({ ...row, applied: false }); continue; }
+      if (!applyActions.has(row.action)) { results.push({ ...row, applied: false, skipped: true }); continue; }
       const root = roots[entry.installRoot], target = path.join(root, entry.folder);
       await safeAncestors(root); await mkdir(root, { recursive: true });
       const source = path.join(projectRoot, entry.source.path);
