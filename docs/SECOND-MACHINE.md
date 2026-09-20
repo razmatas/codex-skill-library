@@ -1,8 +1,8 @@
 # Second-machine handoff
 
-Do this after the dashboard is running and this project is available on the other computer (private GitHub checkout or deliberate local transfer). Do not use a remote-control Codex task to assume the other user's home path or overwrite their skills.
+Do this after the dashboard is running and this project is available on the other computer (public GitHub checkout or deliberate local transfer). Do not use a remote-control Codex task to assume the other user's home path or overwrite their skills.
 
-The private repository is https://github.com/razmatas/codex-skill-library . On Gabs laptop, use an authenticated GitHub account with access and clone it into an appropriate local code-project folder:
+The public repository is https://github.com/razmatas/codex-skill-library . On Gabs laptop, clone it into an appropriate local code-project folder:
 
 ```sh
 gh repo clone razmatas/codex-skill-library

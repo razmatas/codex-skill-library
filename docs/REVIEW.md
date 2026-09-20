@@ -1,30 +1,48 @@
-# Backup review and pending pairing
+# Backup, provenance and two-machine review
 
-Execution environment: codex-work. Checkpoint: 2026-09-17.
+Execution environment: codex-work. Latest checkpoint: 2026-09-21.
 
-Raz approved private backup of all personal packages and then explicitly requested finishing every package. All 44 audited copies are now archived and fingerprint-verified against installed originals; no originals changed. Included license files remain intact, and unknown license/authorship details are explicitly recorded as unknown. Four nonstandard entries remain backup-only. This fulfills archival coverage, not public redistribution rights, dependency setup or two-machine equivalence. Local audit reports remain ignored and are not served.
+Raz approved backup of all personal packages and explicitly confirmed that the GitHub repository should remain public so other agents can clone it. All 44 audited copies are archived and fingerprint-verified; 40 are discoverable and four nonstandard entries are retained as backup-only. Built-in/runtime/plugin caches, credentials, machine-local configuration, inventories and reporter tokens are excluded from Git.
 
-## Remaining review scope
+Public visibility is an access decision, not a licensing conclusion. Package entries whose authorship or license is unknown remain marked unresolved in `library.json`. Before adding or republishing new package content, repeat the secret, provenance and license review.
 
-- Review for custom backup: brand-inspo-reference, deck-inspo-reference, logo-inspo-reference, web-inspo-reference, and hatch-pet. Authorship and intended distribution still need confirmation; location and license alone do not establish authorship.
-- Preserve but hold for origin review: Pencil workflow skills, Framer/generated project skills, brand-extractor, and ui-ux-pro-max. Do not assume these are user-owned custom packages.
-- Pin verified third-party packages to upstream commits, preserving licenses/notices and the observed version rather than silently upgrading: Obsidian/defuddle, GSAP, Figma, frontend-slides, design-taste-frontend, and any held packages whose upstream is established.
-- Exclude built-in/runtime/plugin cache contents, credentials, local configuration, inventories, and reporter tokens. Plugins continue through their normal installers and local authentication.
-- Preserve all duplicate copies. Five audited pairs had identical fingerprints; this does not authorize deleting either copy.
-- Preserve four renamed entry files (brand-extractor, brand-guidelines, frontend-design, skill-creator); do not rename or enable them automatically. The Claude-oriented skill-creator also requires compatibility/name-collision review.
+## Verified upstreams
 
-Audit evidence: 44 personal folders, 40 discoverable copies, five duplicate-name pairs, no heuristic secret findings. This is not a guarantee that packages contain no secrets. Source references and license hints are clues requiring verification. The two flagged frontend-slides machine paths were generic examples, not actual user paths. Binary Figma icons require content review before packaging.
+Exact content matches are recorded under `verifiedUpstreams` in `library.json` and checked against the archived identities by `scripts/verify-backups.js`:
 
-## Live-state checkpoint
+- Eight GSAP packages match `greensock/gsap-skills` at `aed9cfd3277740755f6bfc1155c7aa645403b760`.
+- `defuddle` matches `kepano/obsidian-skills` at `1e1df342c231705579ece0c99527012dfe4dfa5b` in both archived roots.
+- `json-canvas`, `obsidian-bases`, `obsidian-cli` and `obsidian-markdown` match `kepano/obsidian-skills` at `5a557ceba792fcb4c58591f3117c6887810d8df1` in both archived roots.
+- These upstream repositories declare MIT licensing; their notices are preserved in `THIRD_PARTY_NOTICES.md`.
 
-Read-only health/catalog checks confirmed Raz's dashboard responds and reports a fresh local inventory. Gabs is unconnected; no two-machine equivalence is established. Counts can change as skills are installed and must not be used as acceptance proof. The installed runtime has not been redeployed with the local audit/sync development changes.
+`frontend-slides` did not match any commit found in the available upstream history and therefore remains an unverified snapshot. Figma and other packages without an exact verified origin remain unpinned rather than receiving a guessed attribution.
 
-## Resume after approval
+## Live two-machine checkpoint
 
-1. Confirm the exact owned custom packages and accepted upstream scope with Raz.
-2. Finish package/provenance/license review and pin commits matching approved content. Review the staged Git diff before uploading any package contents.
-3. Pair Gabs using SECOND-MACHINE.md and a private token transfer. Verify a fresh inventory and automatic discovery from that machine. Do not infer permission to launch a remote task or assume its filesystem paths.
-4. Complete upstream preparation, recovery/apply CLI and reviewed ownership adoption. Exercise real approved packages with dry-run first, preserve edits and backups, and then verify both machines against the manifest.
-5. Redeploy reviewed application changes safely; document verified end-to-end setup. Do not mark the goal complete based on fixture tests alone.
+Fresh automatic reporter cycles were observed on 2026-09-21 for both machines, with no scan warnings:
 
-Local development evidence: all 20 tests passed; git diff --check passed. Tests cover read-only inventory protection, audit redaction, manifest validation, edit conflicts, plan-change refusal, fixture installation/update backups and package-link refusal. They do not prove upstream acquisition, crash recovery, arbitrary concurrent third-party installers, or two-machine operation. Apply locking is advisory; other installers must be stopped.
+- Raz: 219 observed skills/packages: 12 built-in, 40 personal and 167 plugin/cache observations.
+- Gabs: 209 observed skills/packages: 12 built-in, 42 personal and 155 plugin/cache observations.
+- All 40 archived discoverable identities are present on both machines.
+- Thirty-eight personal identities match exactly.
+- Two local edits are deliberately preserved as conflicts: Raz's `brand-inspo-reference` differs from the archive/Gabs copy, while Gabs' `design-taste-frontend` differs from the archive/Raz copy.
+- Gabs also has two local-only personal packages: `agent-reach` and `text-to-lottie`.
+- Plugin/cache count differences are observed local state, not evidence of a failed personal-skill restore.
+
+The reporting token remains machine-local and ignored. The dashboard service reads the fresh reports without placing credentials or runtime inventories in the public repository.
+
+## Safety properties
+
+- Restore planning installs only missing archived packages and reports conflicts; it does not silently overwrite differing local packages.
+- Apply rechecks the plan and target, validates package identity and hash, and backs up explicitly managed updates.
+- No restore or sync path deletes user packages.
+- Duplicate folders and nonstandard entries remain preserved rather than merged or renamed.
+- Automatic scanning updates inventory/status only. Publishing and restoration remain deliberate operations.
+
+## Remaining decisions, not blockers
+
+- Decide manually whether either preserved local edit should replace the archived baseline; no automatic winner is assumed.
+- Decide whether Gabs' two local-only packages should be reviewed and added to the shared archive.
+- Confirm provenance/licensing before treating any still-unverified snapshot as redistributable third-party content.
+
+Verification at this checkpoint: 44 archived fingerprints passed; 18 archived identities map to exact upstream pins; the full 23-test suite passed; both machine reports advanced automatically.
