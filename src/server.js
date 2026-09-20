@@ -1,11 +1,37 @@
 import http from 'node:http';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
+import { Worker } from 'node:worker_threads';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { projectRoot, dataDir, loadConfig, readJson, atomicJson } from './config.js';
-import { scan } from './scanner.js';
 import { buildCatalog } from './catalog.js';
+
+export function scanInWorker(config, { timeoutMs = config.scanTimeoutMs || 120000 } = {}) {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(new URL('./scan-worker.js', import.meta.url), { workerData: config });
+    worker.unref();
+    let settled = false;
+    const finish = (callback, value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      callback(value);
+    };
+    const timer = setTimeout(() => {
+      worker.terminate();
+      finish(reject, new Error(`Skill scan timed out after ${timeoutMs}ms`));
+    }, timeoutMs);
+    timer.unref();
+    worker.once('message', message => {
+      worker.terminate();
+      if (message?.ok) finish(resolve, message.inventory);
+      else finish(reject, new Error(message?.error || 'Skill scan worker failed'));
+    });
+    worker.once('error', error => finish(reject, error));
+    worker.once('exit', code => { if (code !== 0) finish(reject, new Error(`Skill scan worker exited with code ${code}`)); });
+  });
+}
 
 export function validateInventory(input, config) {
   const short = (x, max = 1000) => typeof x === 'string' && x.length <= max;
@@ -29,7 +55,7 @@ export function validateInventory(input, config) {
   if (!input.warnings.every(x => short(x, 4000)) || !Number.isFinite(Date.parse(input.scannedAt))) throw new Error('Invalid scan metadata');
   return { schemaVersion: 1, machine: config.machines.find(x => x.id === input.machine.id), scannedAt: input.scannedAt, receivedAt: new Date().toISOString(), skills, roots, warnings: input.warnings };
 }
-export async function createApp(config, { directory = dataDir, scanner = scan } = {}) {
+export async function createApp(config, { directory = dataDir, scanner = null, scanRunner = null } = {}) {
   await mkdir(directory, { recursive: true });
   const tokenFile = path.join(directory, 'report-token');
   let token;
@@ -45,10 +71,11 @@ export async function createApp(config, { directory = dataDir, scanner = scan } 
     if (saved) snapshots.set(machine.id, saved);
   }
   let scanning = null, lastScanError = null;
+  const runScan = scanRunner || (scanner ? () => scanner(config) : () => scanInWorker(config));
   async function refresh() {
     if (scanning) return scanning;
     scanning = (async () => {
-      const inventory = await scanner(config);
+      const inventory = await runScan();
       inventory.receivedAt = new Date().toISOString();
       await atomicJson(path.join(directory, `${config.machineId}.json`), inventory);
       snapshots.set(config.machineId, inventory);
@@ -56,7 +83,10 @@ export async function createApp(config, { directory = dataDir, scanner = scan } 
     })().catch(e => { lastScanError = e.message; console.error('Scan failed:', e.message); }).finally(() => { scanning = null; });
     return scanning;
   }
-  await refresh();
+  const initialRefresh = refresh();
+  // Injected scanners are used by tests and callers that expect an initialized
+  // snapshot. Production scanning stays in a worker so listeners can start now.
+  if (scanner) await initialRefresh;
   const interval = setInterval(refresh, config.scanIntervalMs);
   interval.unref();
   const assets = new Map([['/', ['index.html','text/html']], ['/app.js', ['app.js','text/javascript']], ['/style.css', ['style.css','text/css']]]);
@@ -100,7 +130,7 @@ export async function createApp(config, { directory = dataDir, scanner = scan } 
         favouriteWrite = update.catch(() => {});
         return send(200, { favourites: await update });
       }
-      if (req.method === 'GET' && url.pathname === '/api/health') return send(200, { ok: !lastScanError, machineId: config.machineId, scanIntervalMs: config.scanIntervalMs });
+      if (req.method === 'GET' && url.pathname === '/api/health') return send(200, { ok: !lastScanError, machineId: config.machineId, scanIntervalMs: config.scanIntervalMs, scanning: Boolean(scanning) });
       if (req.method === 'POST' && url.pathname === '/api/inventory') {
         const supplied = Buffer.from((req.headers.authorization || '').replace(/^Bearer /, ''));
         const expected = Buffer.from(token);

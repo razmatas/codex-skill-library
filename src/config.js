@@ -16,6 +16,7 @@ export async function loadConfig() {
   if (!/^[a-z0-9-]{1,80}$/.test(config.machineId)) throw new Error('Invalid machineId');
   if (!Number.isInteger(config.port) || config.port < 1024 || config.port > 65535) throw new Error('Invalid port');
   if (config.scanIntervalMs < 10000 || config.staleAfterMs < config.scanIntervalMs * 2) throw new Error('Invalid scan/stale intervals');
+  if (!Number.isInteger(config.scanTimeoutMs) || config.scanTimeoutMs < 10000 || config.scanTimeoutMs > 600000) throw new Error('Invalid scan timeout');
   return config;
 }
 export async function atomicJson(file, value) {

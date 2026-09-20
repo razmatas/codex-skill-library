@@ -8,7 +8,7 @@ import { metadata, parseCodexConfig, scan, packageHash } from '../src/scanner.js
 import { buildCatalog } from '../src/catalog.js';
 import { createApp, validateInventory } from '../src/server.js';
 
-const config = { machineId:'raz-laptop', machineName:'Raz laptop', machines:[{id:'raz-laptop',name:'Raz laptop'},{id:'gabs-laptop',name:'Gabs laptop'}], scanIntervalMs:60000, staleAfterMs:300000 };
+const config = { machineId:'raz-laptop', machineName:'Raz laptop', machines:[{id:'raz-laptop',name:'Raz laptop'},{id:'gabs-laptop',name:'Gabs laptop'}], scanIntervalMs:60000, scanTimeoutMs:120000, staleAfterMs:300000 };
 const skill = { id:'user:agents:example', origin:'user:agents', name:'example', description:'Create something useful', kind:'personal', state:'installed', hash:'a'.repeat(64), sourceLabel:'User', path:'~/.agents/skills/example/SKILL.md' };
 const snapshot = (id='raz-laptop', skills=[skill]) => ({schemaVersion:1,machine:{id,name:id},scannedAt:new Date().toISOString(),skills,roots:[{origin:'user:agents',path:'~/.agents/skills',state:'ok'}],warnings:[]});
 async function temporary() { return mkdtemp(path.join(os.tmpdir(),'codex-skill-library-test-')); }
@@ -100,5 +100,20 @@ test('server restricts host, protects upload, accepts valid reporter, persists s
     assert.equal(JSON.parse(await readFile(path.join(directory,'gabs-laptop.json'),'utf8')).machine.id,'gabs-laptop');
     assert.equal((await fetch(base+'/data/report-token')).status,404);
     assert.equal((await fetch(base+'/api/inventory',{method:'POST',headers:{Authorization:`Bearer ${token}`,Origin:'http://localhost'},body:'{}'})).status,403);
+  } finally { app.close(); await new Promise(resolve=>server.close(resolve)); }
+});
+test('server remains responsive while a production-style scan is still running', async () => {
+  const directory=await temporary();
+  await writeFile(path.join(directory,'raz-laptop.json'),JSON.stringify(snapshot()));
+  let finishScan;
+  const app=await createApp(config,{directory,scanRunner:()=>new Promise(resolve=>{finishScan=resolve;})});
+  const server=http.createServer(app.handler); await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  try {
+    const base=`http://127.0.0.1:${server.address().port}`;
+    const health=await (await fetch(base+'/api/health')).json();
+    assert.equal(health.ok,true); assert.equal(health.scanning,true);
+    assert.ok((await (await fetch(base+'/api/catalog')).json()).skills.some(item=>item.id===skill.id));
+    finishScan(snapshot()); await app.refresh();
+    assert.equal((await (await fetch(base+'/api/health')).json()).scanning,false);
   } finally { app.close(); await new Promise(resolve=>server.close(resolve)); }
 });

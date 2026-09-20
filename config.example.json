@@ -3,6 +3,7 @@
   "machineName": "Raz laptop",
   "port": 4317,
   "scanIntervalMs": 60000,
+  "scanTimeoutMs": 120000,
   "staleAfterMs": 300000,
   "tailscaleHost": "",
   "tailscaleDns": "",
