@@ -92,6 +92,12 @@ test('server restricts host, protects upload, accepts valid reporter, persists s
   try {
     const base=`http://127.0.0.1:${server.address().port}`, token=(await readFile(app.tokenFile,'utf8')).trim();
     assert.equal((await fetch(base+'/api/catalog')).status,200);
+    const page=await (await fetch(base+'/')).text();
+    assert.match(page, /<link rel="icon" type="image\/svg\+xml" href="\/favicon\.svg">/);
+    const favicon=await fetch(base+'/favicon.svg');
+    assert.equal(favicon.status,200);
+    assert.match(favicon.headers.get('content-type'), /^image\/svg\+xml/);
+    assert.match(await favicon.text(), /<svg /);
     const forbiddenStatus = await new Promise((resolve,reject) => { const request=http.get(base+'/api/catalog',{headers:{Host:'evil.test'}},response=>{response.resume();resolve(response.statusCode);});request.on('error',reject); });
     assert.equal(forbiddenStatus,403);
     assert.equal((await fetch(base+'/api/inventory',{method:'POST',body:'{}'})).status,401);

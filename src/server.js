@@ -89,7 +89,7 @@ export async function createApp(config, { directory = dataDir, scanner = null, s
   if (scanner) await initialRefresh;
   const interval = setInterval(refresh, config.scanIntervalMs);
   interval.unref();
-  const assets = new Map([['/', ['index.html','text/html']], ['/app.js', ['app.js','text/javascript']], ['/style.css', ['style.css','text/css']]]);
+  const assets = new Map([['/', ['index.html','text/html']], ['/app.js', ['app.js','text/javascript']], ['/style.css', ['style.css','text/css']], ['/favicon.svg', ['favicon.svg','image/svg+xml']]]);
   async function handler(req, res) {
     const headers = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" };
     const send = (status, value) => { res.writeHead(status, { ...headers, 'Content-Type': 'application/json' }); res.end(JSON.stringify(value)); };
