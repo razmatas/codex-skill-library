@@ -2,10 +2,10 @@
 
 Do this after the dashboard is running and this project is available on the other computer (public GitHub checkout or deliberate local transfer). Do not use a remote-control Codex task to assume the other user's home path or overwrite their skills.
 
-The public repository is https://github.com/razmatas/codex-skill-library . On Gabs laptop, clone it into an appropriate local code-project folder:
+The public repository is https://github.com/warung-kerja/codex-skill-library . On Gabs laptop, use the existing checkout if present (update its remote URL), or clone it into an appropriate local code-project folder:
 
 ```sh
-gh repo clone razmatas/codex-skill-library
+gh repo clone warung-kerja/codex-skill-library
 ```
 
 Then give Codex the prompt below. Local configuration and the reporter token are intentionally not in GitHub and must be set up separately. Once those two local files are ready, the intended happy path is one command: `npm run setup:gabs`.

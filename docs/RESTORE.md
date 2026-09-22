@@ -1,6 +1,6 @@
 # Restore the personal-skill snapshot
 
-All 44 audited personal package copies from Raz's laptop are archived under skills/ with their original roots and exact hashes. This excludes built-in/runtime/plugin caches and credentials. Included license files are preserved. Unknown authorship/licenses remain explicitly unknown; repository visibility is not evidence of permission to reuse or redistribute those packages.
+All 45 audited personal package copies are archived under skills/ with their original roots and exact hashes. The original 44 came from Raz's laptop; `team-orchestration` was added in the repository on 2026-09-22. This excludes built-in/runtime/plugin caches and credentials. Included license files are preserved. Unknown authorship/licenses remain explicitly unknown; repository visibility is not evidence of permission to reuse or redistribute those packages.
 
 On Gabs, clone/fetch the public repository without resetting local Git changes. Read SECOND-MACHINE.md to pair reporting first. Then:
 
