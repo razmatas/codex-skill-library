@@ -1227,10 +1227,38 @@
         "path": "skills/codex/web-inspo-reference"
       },
       "examplePrompt": "$web-inspo-reference — describe your task here"
+    },
+    {
+      "id": "user:codex:team-orchestration",
+      "name": "team-orchestration",
+      "origin": "user:codex",
+      "folder": "team-orchestration",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/team-orchestration",
+      "expectedHash": "165b2f5c92b788c84147447b7eb71e1128ed82df409456f2c727be33b5d8ddf2",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      },
+      "description": "Coordinate explicitly requested project work from one Astra Mastermind conversation using native subagents with task-appropriate models. Separate persistent Codex tasks are an explicit alternative. Opt-in only; not automatic on every project.",
+      "kind": "personal",
+      "sourceLabel": "Private installed snapshot",
+      "source": {
+        "type": "snapshot",
+        "path": "skills/codex/team-orchestration"
+      },
+      "examplePrompt": "$team-orchestration — coordinate this project with native subagents"
     }
   ],
   "plugins": [],
-  "notes": "All 44 audited personal package copies are archived with exact package hashes under their original roots. Raz approved the backup on 2026-09-17 and explicitly confirmed public repository visibility on 2026-09-21 for agent access. Includes 40 discoverable copies and four nonstandard entry files. verifiedUpstreams records only package contents matched exactly to immutable upstream commits; remaining unknown licenses/authorship are explicitly unresolved. Built-in/plugin caches, credentials, local inventories and reporter tokens are excluded. No blind installation or ownership adoption is enabled.",
+  "notes": "All 45 audited personal package copies are archived with exact package hashes under their original roots. Raz approved the backup on 2026-09-17 and explicitly confirmed public repository visibility on 2026-09-21 for agent access; team-orchestration was added as a reviewed private snapshot on 2026-09-22. Includes 41 discoverable copies and four nonstandard entry files. verifiedUpstreams records only package contents matched exactly to immutable upstream commits; remaining unknown licenses/authorship are explicitly unresolved. Built-in/plugin caches, credentials, local inventories and reporter tokens are excluded. No blind installation or ownership adoption is enabled.",
   "backups": [
     {
       "id": "user:agents:apply-frontend",
@@ -2177,6 +2205,26 @@
       "expectedHash": "6e30dac72f336cf3ca92b86343ac975f26abaac0a53391bc3c52b67412a87528",
       "licenseFiles": [],
       "license": "Unspecified; public redistribution review required",
+      "discoverable": true,
+      "provenance": "Installed snapshot; upstream authorship/revision unverified",
+      "managed": false,
+      "review": {
+        "secretScan": "No heuristic findings; not a guarantee",
+        "portability": "Exact original preserved; dependencies, connectors and generated machine paths require local setup",
+        "redistribution": "No inferred redistribution permission"
+      }
+    },
+    {
+      "id": "user:codex:team-orchestration",
+      "name": "team-orchestration",
+      "origin": "user:codex",
+      "folder": "team-orchestration",
+      "installRoot": "codex",
+      "entryFile": "SKILL.md",
+      "backupPath": "skills/codex/team-orchestration",
+      "expectedHash": "165b2f5c92b788c84147447b7eb71e1128ed82df409456f2c727be33b5d8ddf2",
+      "licenseFiles": [],
+      "license": "Unspecified; private archival backup only",
       "discoverable": true,
       "provenance": "Installed snapshot; upstream authorship/revision unverified",
       "managed": false,

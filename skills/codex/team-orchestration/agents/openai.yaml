@@ -1,0 +1,6 @@
+interface:
+  display_name: "Team Orchestration"
+  short_description: "Opt-in Astra coordination with native subagents"
+  default_prompt: "Use $team-orchestration for this project, keeping Astra as Mastermind and delegating suitable work to native subagents."
+policy:
+  allow_implicit_invocation: false
